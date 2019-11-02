@@ -1,0 +1,27 @@
+<div class="main-content meethigher-scroll">
+    <div class="main-content-post">
+        <% page.posts.each(function (post) { %>
+            <article class="post">
+                <div class="post-title">
+                    <a href="<%- url_for(post.path) %>"><%= post.title %></a>
+                </div>
+                <div class="post-excerpt">
+                    <%- post.excerpt %>
+                </div>
+                <div class="post-content">
+                    <a href="<%- url_for(post.path) %>">阅读全文</a>
+                    <% if (post.tags && post.tags.length){ %>
+                        <%- list_tags(post.tags, {
+                            show_count: false,
+                            class: 'article-tag'
+                        }) %>
+                    <% } %>
+                </div>
+                <div class="post-media">
+                    <span class="post-time">posted&nbsp;@&nbsp;<%- date(post.date, "YYYY-MM-DD HH:MM:SS") %>&nbsp;<%- config.author %></span>
+                </div>
+            </article>
+        <% }) %>
+        <%- partial("_partial/paginator") %>
+    </div>
+</div>

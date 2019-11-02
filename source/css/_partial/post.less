@@ -1,0 +1,349 @@
+.post-media2 {
+  margin-top: 20rem/@baseFontSize;
+
+  .post-time {
+    padding: 5rem/@baseFontSize 15rem/@baseFontSize;
+    border-radius: 10rem/@baseFontSize;
+    background-color: rgba(255, 255, 255, .2);
+    color: @colorFont;
+  }
+
+  .article-tag-list {
+    float: left;
+
+    .article-tag-list-item {
+      float: left;
+      margin: 0 5rem/@baseFontSize;
+
+      a {
+        padding: 5rem/@baseFontSize 15rem/@baseFontSize;
+        border-radius: 10rem/@baseFontSize;
+        background-color: rgba(255, 255, 255, .2);
+        color: @colorFont;
+      }
+    }
+  }
+}
+
+.blog-markdown {
+  font-size: 16rem/@baseFontSize !important;
+  /*设置h标签*/
+  .postSize(@fontSize) {
+    font-size: @fontSize/@baseFontSize !important;
+    margin: 10rem/@baseFontSize 0;
+  }
+
+  h6 {
+    .postSize(16rem);
+  }
+
+  h5 {
+    .postSize(18rem);
+  }
+
+  h4 {
+    .postSize(20rem);
+  }
+
+  h3 {
+    .postSize(22rem);
+  }
+
+  h2 {
+    .postSize(24rem);
+  }
+
+  h1 {
+    .postSize(26rem);
+  }
+
+  /*设置无序有序标签*/
+
+  ul, ol {
+    margin-left: 30rem/@baseFontSize;
+
+    li {
+      margin: 3rem/@baseFontSize 0;
+    }
+  }
+
+  ul {
+    list-style-type: disc;
+  }
+
+  ol {
+    list-style-type: decimal;
+  }
+
+  /*设置引用标签*/
+
+  blockquote {
+    border: none;
+    color: @colorFont;
+    margin: 20rem/@baseFontSize 0;
+    padding: 0 0 0 10rem/@baseFontSize;
+    min-height: 20rem/@baseFontSize;
+    background-color: transparent;
+    line-height: inherit;
+    border-left: 4px solid @post-blockquote-border-color;
+  }
+
+  /*设置加粗倾斜*/
+
+  strong {
+    margin: 0 3rem/@baseFontSize;
+  }
+
+  em {
+    padding-right: 3rem/@baseFontSize;
+  }
+
+  /*设置图片*/
+  @media screen and (min-width: 767px) {
+    img {
+      max-width: 930rem/@baseFontSize;
+      display: block;
+      margin: 15rem/@baseFontSize auto 30rem/@baseFontSize auto;
+      border-radius: 3rem/@baseFontSize;
+    }
+  }
+  @media screen and (max-width: 767px) {
+    img {
+      width: 100%;
+      display: block;
+      margin: 15rem/@baseFontSize auto 30rem/@baseFontSize auto;
+      border-radius: 3rem/@baseFontSize;
+    }
+  }
+  /*设置表格*/
+
+  > table {
+    font-size: 16rem/@baseFontSize;
+    border-collapse: collapse;
+    border-spacing: 0;
+    empty-cells: show;
+    border: 1px solid @post-table-border-color;
+    width: 100%;
+    margin-bottom: 24rem/@baseFontSize;
+    border-radius: 3rem/@baseFontSize;
+
+    th {
+      font-family: inherit;
+      font-size: inherit;
+      background-color: @post-table-thead-bg-color !important;
+      white-space: nowrap;
+      font-weight: 600;
+      border: 1px solid @post-table-border-color !important;
+      padding: 8rem/@baseFontSize 16rem/baseFontSize !important;
+    }
+
+    td {
+      border: 1px solid @post-table-border-color !important;
+      padding: 8rem/@baseFontSize 16rem/@baseFontSize !important;
+    }
+  }
+
+  /*设置超链接*/
+
+  a {
+    padding: 0 !important;
+    border-radius: 0 !important;
+    color: @colorFontHover !important;
+    background-color: transparent !important;
+  }
+
+  /*设置段落格式*/
+
+  p {
+    margin: 10rem/@baseFontSize auto;
+    text-indent: 0;
+  }
+
+  /*设置关键字*/
+
+  p code {
+    color: @colorFont;
+    line-height: 1;
+    padding: 3rem/@baseFontSize 4rem/@baseFontSize;
+    margin: 0 3rem/@baseFontSize;
+    border-radius: 3rem/@baseFontSize !important;
+    border: 1px solid @post-table-border-color;
+    background-color: @post-table-thead-bg-color;
+  }
+
+  /*设置代码块*/
+
+  figure.highlight {
+    background-color: @post-table-thead-bg-color;
+    padding: 30rem/@baseFontSize 0 10rem/@baseFontSize 0;
+    border: 1px solid @post-table-border-color;
+    border-radius: 3rem/@baseFontSize;
+    position: relative;
+    overflow-x: auto;
+    width:100%;
+    span.language {
+      position:absolute;
+      top:0;
+      left:0;
+      padding:5rem/@baseFontSize 6rem/@baseFontSize 6rem/@baseFontSize 6rem/@baseFontSize;
+      border-radius:10rem/@baseFontSize;
+    }
+    table {
+      width:100%;
+      position:relative;
+      .line {
+        font-family: "Comic Sans MS", Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace !important;
+        height: 12rem/@baseFontSize;
+
+        .comment,
+        .quote {
+          color: #5c6370;
+          font-style: italic;
+        }
+
+        .doctag,
+        .keyword,
+        .formula {
+          color: #c678dd;
+        }
+
+        .section,
+        .name,
+        .selector-tag,
+        .deletion,
+        .subst {
+          color: #e06c75;
+        }
+
+        .literal {
+          color: #56b6c2;
+        }
+
+        .string,
+        .regexp,
+        .addition,
+        .attribute,
+        .meta-string {
+          color: #98c379;
+        }
+
+        .built_in,
+        .class .title {
+          color: #e6c07b;
+        }
+
+        .attr,
+        .variable,
+        .template-variable,
+        .type,
+        .selector-class,
+        .selector-attr,
+        .selector-pseudo,
+        .number {
+          color: #d19a66;
+        }
+
+        .symbol,
+        .bullet,
+        .link,
+        .meta,
+        .selector-id,
+        .title {
+          color: #61aeee;
+        }
+
+        .emphasis {
+          font-style: italic;
+        }
+
+        .strong {
+          font-weight: bold;
+        }
+
+        .link {
+          text-decoration: underline;
+        }
+      }
+
+      .gutter {
+        pre {
+          padding-left: 8rem/@baseFontSize;
+          text-align: right;
+          color: @post-table-border-color;
+        }
+      }
+
+      .code {
+        pre {
+          padding-right: 8rem/@baseFontSize;
+          padding-left: 8rem/@baseFontSize;
+          width: 100%;
+        }
+      }
+
+      &::before {
+        position:absolute;
+        top:-30rem/@baseFontSize;
+        left:0;
+        min-width:100%;
+        display:block;
+        height:30rem/@baseFontSize;
+        background-color: @post-table-border-color;
+        content:""
+      }
+      tbody {
+        pointer-events: none;
+        &::after {
+          position:absolute;
+          top:-30rem/@baseFontSize;
+          right:0;
+          content:"copy";
+          padding:5rem/@baseFontSize 6rem/@baseFontSize 6rem/@baseFontSize 6rem/@baseFontSize;
+          border-radius:10rem/@baseFontSize;
+          background-color: skyblue;
+          cursor:pointer;
+          pointer-events: all;
+        }
+        .before {
+          opacity:0;
+          position:absolute;
+          top:-30rem/@baseFontSize;
+          right:50rem/@baseFontSize;
+          padding:5rem/@baseFontSize 6rem/@baseFontSize 6rem/@baseFontSize 6rem/@baseFontSize;
+          background-color: skyblue;
+          content:"success";
+          border-radius:10rem/@baseFontSize;
+          animation:copy 1.5s;
+        }
+        @keyframes copy {
+          0% {
+            opacity:0
+          }
+          50% {
+            opacity:1
+          }
+          100% {
+            opacity:0
+          }
+        }
+      }
+    }
+
+    &::-webkit-scrollbar { /*滚动条整体样式*/
+      width: 5rem/@baseFontSize; /*高宽分别对应横竖滚动条的尺寸*/
+      height: 5rem/@baseFontSize;
+    }
+
+    &::-webkit-scrollbar-thumb { /*滚动条里面小方块*/
+      border-radius: 10px;
+      background-color: @colorDiy;
+      background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, .2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%, transparent 75%, transparent);
+    }
+
+    &::-webkit-scrollbar-track { /*滚动条里面轨道*/
+      -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+      border-radius: 10px;
+      background: #EDEDED;
+    }
+  }
+}

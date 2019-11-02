@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+<%- partial("_partial/head") %>
+<body>
+<%- partial("_partial/header") %>
+<main class="main">
+    <%- body %>
+    <%- partial("_partial/arrow") %>
+</main>
+<%- partial("_partial/aside") %>
+<%- partial("_partial/toolbar") %>
+<%- partial("_partial/particles") %>
+<%- js("https://cdn.jsdelivr.net/gh/meethigher/cdn@9.0/js/jquery.min.js") %>
+<%- js("https://cdn.jsdelivr.net/gh/meethigher/cdn@9.0/js/particles.min.js") %>
+<%- js("https://cdn.jsdelivr.net/gh/meethigher/cdn@9.0/js/app.js") %>
+<%- js("js/meethigher.js") %>
+<%- js("js/toolbar.js") %>
+</body>
+</html>

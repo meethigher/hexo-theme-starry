@@ -1,0 +1,27 @@
+<div class="main-content meethigher-scroll">
+    <% let postsArr = [];
+    site.posts.forEach(function (post) {
+        postsArr.push(post);
+    });
+    let compare = function (obj1, obj2) {
+        var val1 = obj1.date;
+        var val2 = obj2.date;
+        if (val1 > val2) {
+            return -1;
+        } else if (val1 < val2) {
+            return 1;
+        } else {
+            return 0;
+        }
+    }
+    postsArr = postsArr.sort(compare);
+    %>
+    <div class="tag-tags">
+        <span class="tags-title">归档&nbsp;-&nbsp;共<%= postsArr.length %>篇</span>
+        <ul class="posts-all">
+            <% postsArr.forEach(function(post){ %>
+                <li><span><%= time(post.date, "YYYY-MM-DD") %></span><a href="/<%= post.path %>"><%= post.title %></a></li>
+            <% }) %>
+        </ul>
+    </div>
+</div>

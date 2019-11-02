@@ -1,0 +1,29 @@
+Menu:
+  Home:
+    url: /
+    text: 主页
+  Tag:
+    url: /tags
+    text: 标签
+#  Category:
+#    url: /categories
+#    text: 分类
+  Archive:
+    url: /archives
+    text: 归档
+  About:
+    url: /about
+    text: 关于
+  Navigate:
+    url: https://so.meethigher.top/
+    text: 导航
+
+Icon:
+   Favicon: /images/favicon.ico
+Aside:
+  Avatar: /images/kitchen.jpg
+  Author: 言成
+  Description: 爱学习，爱运动，爱看妹子
+  Github: https://github.com/meethigher
+  Email: meethigher@qq.com
+  Weixin: /images/weixin.png

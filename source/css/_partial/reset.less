@@ -1,0 +1,55 @@
+/*========reset css===============*/
+*,
+*::before,
+*::after {
+  /*所有的标签和伪元素都选中*/
+  margin: 0;
+  padding: 0;
+  /*移动端常用布局是非固定像素布局*/
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  /*点击高亮效果清除*/
+  tap-highlight-color: transparent;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  font-size: 20rem/@baseFontSize;
+  font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', sans-serif;
+  color: @colorFont;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: @colorFont;
+}
+
+input, textarea {
+  border: none;
+  outline: none;
+  /*不允许改变尺寸*/
+  resize: none;
+  /*元素的外观 none没有任何样式*/
+  -webkit-appearance: none;
+}
+
+/*===============common css===========*/
+/*清除浮动*/
+.clearFix::before,
+.clearFix::after {
+  content: "";
+  display: block;
+  visibility: hidden;
+  height: 0;
+  line-height: 0;
+  clear: both;
+}
