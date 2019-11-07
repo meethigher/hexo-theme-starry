@@ -26,7 +26,7 @@
 }
 
 .blog-markdown {
-  font-size: 16rem/@baseFontSize !important;
+  font-size: 18rem/@baseFontSize !important;
   /*设置h标签*/
   .postSize(@fontSize) {
     font-size: @fontSize/@baseFontSize !important;
@@ -34,27 +34,27 @@
   }
 
   h6 {
-    .postSize(16rem);
-  }
-
-  h5 {
     .postSize(18rem);
   }
 
-  h4 {
+  h5 {
     .postSize(20rem);
   }
 
-  h3 {
+  h4 {
     .postSize(22rem);
   }
 
-  h2 {
+  h3 {
     .postSize(24rem);
   }
 
-  h1 {
+  h2 {
     .postSize(26rem);
+  }
+
+  h1 {
+    .postSize(28rem);
   }
 
   /*设置无序有序标签*/
@@ -193,7 +193,7 @@
       position:relative;
       .line {
         font-family: "Comic Sans MS", Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace !important;
-        height: 12rem/@baseFontSize;
+        line-height: 12rem/@baseFontSize;
 
         .comment,
         .quote {
