@@ -15,5 +15,11 @@
         <div class="post-content blog-markdown">
             <%- page.more %>
         </div>
+        <% if (theme.Footer.counter){ %>
+            <div class="busuanzi">
+                <span id="busuanzi_container_page_pv">阅读量<span id="busuanzi_value_page_pv"></span>次</span><span class="post-meta-divider">|</span><span id="busuanzi_container_site_uv">阅读人数<span id="busuanzi_value_site_uv"></span>人</span>
+                <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            </div>
+        <% } %>
     </article>
 </div>

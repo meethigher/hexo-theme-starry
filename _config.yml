@@ -11,12 +11,12 @@ Menu:
   Archive:
     url: /archives
     text: 归档
-  About:
-    url: /about
-    text: 关于
-  Navigate:
-    url: https://so.meethigher.top/
-    text: 导航
+#  About:
+#    url: /about
+#    text: 关于
+#  Navigate:
+#    url: https://so.meethigher.top/
+#    text: 导航
 
 Icon:
    Favicon: /images/favicon.ico
@@ -27,3 +27,5 @@ Aside:
   Github: https://github.com/meethigher
   Email: meethigher@qq.com
   Weixin: /images/weixin.png
+Footer:
+  counter: true
