@@ -1,6 +1,6 @@
 ## hexo-theme-starry
 
-welcome!
+Welcome!
 
 Language:
 
@@ -11,7 +11,7 @@ Language:
 
 I finished it in my spare time.
 
-**preview: [言成言成啊](https://meethigher.top/)**
+**Preview: [言成言成啊](https://meethigher.top/)**
 
 The theme was developed by `less` and `ejs`. You can't use `starry` unless you installed `Less`.
 
