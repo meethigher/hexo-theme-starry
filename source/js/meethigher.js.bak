@@ -9,7 +9,7 @@ $(function (){
     let isClick=true;
 	printDefaultLog();
 	function printDefaultLog(){
-		console.log("%c@description:言成的个人博客\n@author:言成言成啊\n@link:https://meethigher.top/\n@createDate:2019-09-16","font-size:18px; font-weight:bold; color:#24a0f0;")
+		console.log("%c@description:�Գɵĸ��˲���\n@author:�Գ��Գɰ�\n@link:https://meethigher.top/\n@createDate:2019-09-16","font-size:18px; font-weight:bold; color:#24a0f0;")
 	}
     $menu.on("click",function (){
         if(!isClick) return;
