@@ -20,7 +20,7 @@
         <span class="tags-title">归档&nbsp;-&nbsp;共<%= postsArr.length %>篇</span>
         <ul class="posts-all">
             <% postsArr.forEach(function(post){ %>
-                <li><span><%= time(post.date, "YYYY-MM-DD") %></span><a href="/<%= post.path %>"><%= post.title %></a></li>
+                <li><span><%= time(post.date, "YYYY-MM-DD") %></span><a href="<%- url_for("/") %><%= post.path %>"><%= post.title %></a></li>
             <% }) %>
         </ul>
     </div>

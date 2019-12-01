@@ -11,6 +11,12 @@ Menu:
   Archive:
     url: /archives
     text: 归档
+#  Search:
+#    url: /search
+#    text: 导航
+#  Music:
+#    url: /music
+#    text: 音乐
 #  About:
 #    url: /about
 #    text: 关于

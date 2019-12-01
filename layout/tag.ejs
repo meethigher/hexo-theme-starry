@@ -4,7 +4,7 @@
             <span class="tags-title">标签云&nbsp;-&nbsp;共<%= site.tags.length %>个</span>
             <ul class="tags-all clearFix">
                 <% for(let key in site.tags.data) { %>
-                    <li><a href="/tags/<%= site.tags.data[key].name %>/"><%= site.tags.data[key].name %></a></li>
+                    <li><a href="<%- url_for("/tags/") %><%= site.tags.data[key].name %>/"><%= site.tags.data[key].name %></a></li>
                 <% } %>
             </ul>
         <% } else { %>
@@ -14,7 +14,7 @@
             <span class="tags-title">标签&nbsp;-&nbsp;<%= page.tag %>&nbsp;-&nbsp;共<%= tagNum %>篇</span>
             <ul class="posts-all">
                 <% page.posts.each(function(post){ %>
-                <li><span><%= time(post.date, "YYYY-MM-DD") %></span><a href="/<%= post.path %>"><%= post.title %></a></li>
+                <li><span><%= time(post.date, "YYYY-MM-DD") %></span><a href="<%- url_for("/") %><%= post.path %>"><%= post.title %></a></li>
                 <% }) %>
             </ul>
         <% } %>

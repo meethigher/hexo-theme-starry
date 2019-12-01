@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>言成言成啊</title>
+    <link rel="stylesheet" href="/css/index.css">
+    <style>
+        error {
+			font-size:20px;
+        }
+        error span {
+            padding:0 10px;
+        }
+		div {
+		margin:0 auto;
+		text-align:center;
+		}
+    </style>
+</head>
+<body>
+<error>
+    <div>你好像迷路了！</div>
+    <div>等待<span>3</span>秒后自动跳转到首页</div>
+    <div>有问题有直接发送邮件到&nbsp;meethigher@qq.com</div>
+</error>
+<div id="particles-js"></div>
+<script src="https://cdn.jsdelivr.net/gh/meethigher/cdn@9.0/js/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/meethigher/cdn@9.0/js/particles.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/meethigher/cdn@9.0/js/app.js"></script>
+<script>
+    $span=$("span");
+    let i=$span.text();
+    let interval=setInterval(function (){
+        if(i<=0){
+            clearInterval(interval);
+            window.location.href="https://meethigher.top/";
+        }else {
+            i--;
+            $span.text(i);
+        }
+    },1000);
+</script>
+</body>
+</html>

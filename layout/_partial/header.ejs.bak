@@ -4,7 +4,7 @@
     <div class="header-title"><a href="/"><%=config.title%> | <span class="header-subtitle"><%=config.subtitle%></span></a></div>
     <ul class="header-navbar clearFix">
         <% for(name in theme.Menu) { %>
-            <li><a href="<%- url_for(theme.Menu[name].url) %>"><%=theme.Menu[name].text%></a></li>
+            <li><a href="<%- theme.Menu[name].url %>"><%=theme.Menu[name].text%></a></li>
         <% } %>
     </ul>
 </header>
