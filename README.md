@@ -1,18 +1,22 @@
-## Starry主题
+## hexo-theme-starry
 
-欢迎使用
+Welcome!
+
+Language:
+
+1. English
+2. [中文](https://github.com/meethigher/hexo-theme-starry/blob/master/README.zn.md)
 
 ![Starry](Starry.png)
 
-闲得没事写的，预览：[言成言成啊](https://meethigher.top/)
+I finished it in my spare time，preview：[言成言成啊](https://meethigher.top/)
 
-本主题采用的是less跟ejs开发的。直接下载可能不能使用，需要安装less
+Starry is developed by `Less` and `Ejs`.
+
+You can't use it directly, unless you have installed `Less`
 
 ```npm
 $ npm install hexo-renderer-less --save
 ```
 
- 我的邮箱：meethigher@qq.com
-
-
-
+ E-mail：meethigher@qq.com/meethigher@gmail.com
