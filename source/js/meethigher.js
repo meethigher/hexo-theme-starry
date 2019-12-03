@@ -78,31 +78,29 @@ $(function () {
         let spaceNum = "";
         switch ($(this).parent()[0].tagName) {
             case "H1":
-                spaceNum = "";
+                spaceNum = 0;
                 break;
             case "H2":
-                spaceNum = "   ";
+                spaceNum = 1;
                 break;
             case "H3":
-                spaceNum = "     ";
+                spaceNum = 2;
                 break;
             case "H4":
-                spaceNum = "       ";
+                spaceNum = 3;
                 break;
             case "H5":
-                spaceNum = "         ";
+                spaceNum = 4;
                 break;
             case "H6":
-                spaceNum = "           ";
+                spaceNum = 5;
                 break;
         }
         let content = $(this).attr("title");
         let $li = $("<li></li>");
-        let $a = $("<a></a>");
-        $a.attr("href", $(this).attr("href"));
-        $a.text(spaceNum+content);
+        let $a = $("<a href='" + $(this).attr("href") + "'>" + content + "</a>");
         $li.append($a);
-        $li.css("padding-left", spaceNum + "px");
+        $li.css("margin-left",spaceNum*10+"px");
         $catalog.append($li);
     });
     $outline.on("click", function () {
@@ -110,8 +108,110 @@ $(function () {
             title: "大纲目录",
             type: 1,
             skin: 'layui-layer-rim', //加上边框
-            area: ['300px', '240px'], //宽高
-            content: "<ul>"+$catalog.html()+"</ul>"
+            area: ['320px', '240px'], //宽高
+            content: "<div class='catalog-container'><ul>" + $catalog.html() + "</ul></div>"
         });
     });
+});
+//搜索功能
+$(function (){
+    $(".header-search").on("click",function (){
+        $(".search").click();
+    });
+    //=============================================
+    let url = [];
+    let title = [];
+    let content = [];
+    let ajaxing = false;
+
+    function ajaxSearch() {
+        url=[];
+        title=[];
+        content=[];
+        ajaxing = true;
+        $.ajax({
+            url: "/blog/meethigher.xml",//此处需要修改成你的路径
+            dataType: "xml",
+            type: "GET",
+            error: function () {
+                layer.msg("请检查你的配置哦，亲❤~");
+            },
+            success: function (data) {
+                $(data).find("entry").each(function () {
+                    url.push($(this).find("url").text());
+                    title.push($(this).find("title").text());
+                    content.push($(this).find("content").text());
+                });
+            },
+            complete: function () {
+                ajaxing = false;
+            }
+        });
+    }
+
+    function searchResult($result,value) {
+        let count = 0;
+        let index= layer.load(1, {shade: [0.1, '#fff']});
+        let timeId = setInterval(function () {
+            count++;
+            if (!ajaxing) {
+                render($result,value);
+                clearInterval(timeId);
+                layer.close(index);
+            }
+            if (count >= 15) {
+                layer.close(index);
+                layer.msg("超时，请检查您的网络哦，亲❤~");
+                clearInterval(timeId);
+
+            }
+        }, 200);
+    }
+
+    function render($result,value) {
+        let isContains=false;
+        content.forEach(function (ele,index){
+            if(ele.indexOf(value)>-1){
+                let $li=$("<li><a href='"+url[index]+"'>"+title[index]+"</a></li>");
+                $result.append($li);
+                isContains=true;
+            }
+        });
+        if(!isContains)
+            layer.msg("没有你要的内容哦，亲❤~");
+    }
+    //================================================
+
+    $(".search").on("click",function (){
+        layer.open({
+            title: "站内搜索",
+            type: 1,
+            skin: 'layui-layer-rim', //加上边框
+            area: ['320px', '240px'], //宽高
+            content: "<div class=\"search-container\">\n" +
+                "    <input type=\"search\" placeholder=\"搜索\" id=\"input\" autocomplete='off'>\n" +
+                "    <div class=\"btn-search\"><span class=\"fa fa-search\"></span></div>\n" +
+                "    <ul class=\"result\"></ul>\n" +
+                "</div>"
+        });
+        let $input=$("#input");
+        let $button=$(".btn-search");
+        let $result=$(".result");
+        $input.on("keydown",function (e){
+            if(e.which===13){
+                $button.click();
+            }
+        });
+        $button.on("click",function (){
+            $result.empty();
+            ajaxSearch();
+            let value = $input.val();
+            if(value===""||value===null){
+                layer.msg("请输入你要搜索的内容哦，亲❤~");
+                return;
+            }
+            searchResult($result,value);
+        });
+    });
+
 });
