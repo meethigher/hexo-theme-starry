@@ -1,7 +1,33 @@
 .busuanzi {
-  margin-top:30rem/@baseFontSize;
-  text-align:center;
+  margin-top: 30rem/@baseFontSize;
+  text-align: center;
 }
+
+.outline {
+  padding: 5rem/@baseFontSize 15rem/@baseFontSize;
+  background-color: rgba(255, 255, 255, .2);
+  color: @colorFont;
+  cursor: pointer;
+  position: absolute;
+  top: 150px;
+  right: 0;
+  border-radius: 10rem/@baseFontSize;
+}
+
+.layui-layer-page {
+  background-color: #13172f !important;
+  border: 1px solid #fff !important;
+  border-radius: 10px !important;
+}
+
+.layui-layer-title {
+  border-top-left-radius: 10px !important;
+  border-top-right-radius:10px !important;
+}
+.layui-layer-content ul {
+  list-style:none;
+}
+
 .post-media2 {
   margin-top: 20rem/@baseFontSize;
 
@@ -184,17 +210,20 @@
     border-radius: 3rem/@baseFontSize;
     position: relative;
     overflow-x: auto;
-    width:100%;
+    width: 100%;
+
     span.language {
-      position:absolute;
-      top:0;
-      left:0;
-      padding:5rem/@baseFontSize 6rem/@baseFontSize 6rem/@baseFontSize 6rem/@baseFontSize;
-      border-radius:10rem/@baseFontSize;
+      position: absolute;
+      top: 0;
+      left: 0;
+      padding: 5rem/@baseFontSize 6rem/@baseFontSize 6rem/@baseFontSize 6rem/@baseFontSize;
+      border-radius: 10rem/@baseFontSize;
     }
+
     table {
-      width:100%;
-      position:relative;
+      width: 100%;
+      position: relative;
+
       .line {
         font-family: "Comic Sans MS", Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace !important;
         line-height: 12rem/@baseFontSize;
@@ -270,7 +299,8 @@
       }
 
       .gutter {
-        width:30rem/@baseFontSize;
+        width: 30rem/@baseFontSize;
+
         pre {
           padding-left: 8rem/@baseFontSize;
           text-align: right;
@@ -287,48 +317,52 @@
       }
 
       &::before {
-        position:absolute;
-        top:-30rem/@baseFontSize;
-        left:0;
-        min-width:100%;
-        display:block;
-        height:30rem/@baseFontSize;
+        position: absolute;
+        top: -30rem/@baseFontSize;
+        left: 0;
+        min-width: 100%;
+        display: block;
+        height: 30rem/@baseFontSize;
         background-color: @post-table-border-color;
-        content:""
+        content: ""
       }
+
       tbody {
         pointer-events: none;
+
         &::after {
-          position:absolute;
-          top:-30rem/@baseFontSize;
-          right:0;
-          content:"copy";
-          padding:5rem/@baseFontSize 6rem/@baseFontSize 6rem/@baseFontSize 6rem/@baseFontSize;
-          border-radius:10rem/@baseFontSize;
+          position: absolute;
+          top: -30rem/@baseFontSize;
+          right: 0;
+          content: "copy";
+          padding: 5rem/@baseFontSize 6rem/@baseFontSize 6rem/@baseFontSize 6rem/@baseFontSize;
+          border-radius: 10rem/@baseFontSize;
           background-color: skyblue;
-          cursor:pointer;
+          cursor: pointer;
           pointer-events: all;
         }
+
         .before {
-          opacity:0;
-          position:absolute;
-          top:-30rem/@baseFontSize;
-          right:50rem/@baseFontSize;
-          padding:5rem/@baseFontSize 6rem/@baseFontSize 6rem/@baseFontSize 6rem/@baseFontSize;
+          opacity: 0;
+          position: absolute;
+          top: -30rem/@baseFontSize;
+          right: 50rem/@baseFontSize;
+          padding: 5rem/@baseFontSize 6rem/@baseFontSize 6rem/@baseFontSize 6rem/@baseFontSize;
           background-color: skyblue;
-          content:"success";
-          border-radius:10rem/@baseFontSize;
-          animation:copy 1.5s;
+          content: "success";
+          border-radius: 10rem/@baseFontSize;
+          animation: copy 1.5s;
         }
+
         @keyframes copy {
           0% {
-            opacity:0
+            opacity: 0
           }
           50% {
-            opacity:1
+            opacity: 1
           }
           100% {
-            opacity:0
+            opacity: 0
           }
         }
       }
