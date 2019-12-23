@@ -165,7 +165,7 @@ $(function (){
                 clearInterval(timeId);
 
             }
-        }, 200);
+        }, 1000);
     }
 
     function render($result,value) {
