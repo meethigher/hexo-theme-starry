@@ -3,7 +3,22 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title><%=config.title %></title>
+    <%
+    let title = page.title;
+    let description = page.title;
+    if (is_archive()) {
+        title = theme.Menu.Archive.text;
+    } else if (is_tag()) {
+        title = theme.Menu.Tag.text+"-"+page.tag;
+    }
+    if (!title) {
+        title = "言成的个人博客";
+        description = config.description;
+    }
+    %>
+    <meta name="keywords" content="<%= config.keywords %>"/>
+    <meta name="description" content="<%= description %>"/>
+    <title><%= title %></title>
     <%- favicon_tag(theme.Icon.Favicon) %>
     <%- css("https://cdn.jsdelivr.net/gh/meethigher/cdn@9.0/css/meethigher-font.css") %>
     <%- css("https://cdn.jsdelivr.net/gh/meethigher/cdn@9.0/css/animate.css") %>

@@ -1,5 +1,5 @@
 $(function () {
-    let $toolbar = $(".toolbar");
+    let $about = $(".about");
     let $aside = $(".aside");
     let $asideContent = $(".aside-content");
     let $divs = $(".aside-content div");
@@ -9,8 +9,8 @@ $(function () {
 
     let $lis = $(".aside-contact li");
 
-    //toolbar点击事件
-    $toolbar.on("click", function () {
+    //about点击事件
+    $about.on("click", function () {
         if (!isClick) return;
         isClick = false;
         if (flag) {

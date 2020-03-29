@@ -6,49 +6,50 @@
   width:100%;
   height:100%;
   overflow:hidden;
+  z-index:1000;
   background-color: rgba(0,0,0,0.3);
   .aside-content {
-    position:absolute;
+    position:fixed;
     top:0;
     right:0;
-    width:750rem/@baseFontSize;
-    transform:translateX(750rem/@baseFontSize);
+    width:750px;
+    transform:translateX(750px);
     transition:transform .75s;
     height:100%;
-    background-color: rgba(0,0,0,.9);
-    padding:40rem/@baseFontSize 15rem/@baseFontSize;
+    background-color: @colorDiy;
+    padding:40px 15px;
     .aside-avatar {
-      width:128rem/@baseFontSize;
-      height:128rem/@baseFontSize;
+      width:128px;
+      height:128px;
       display:block;
       border-radius:50%;
       margin:0 auto;
       overflow:hidden;
       img {
-        width:128rem/@baseFontSize;
-        height:128rem/@baseFontSize;
+        width:128px;
+        height:128px;
       }
     }
     .aside-author {
       text-align:center;
       font-family:"华文行楷",sans-serif;
-      font-size:40rem/@baseFontSize;
-      margin-top:20rem/@baseFontSize;
+      font-size:40px;
+      margin-top:20px;
     }
     .aside-description {
       text-align:center;
       font-family:"华文行楷",sans-serif;
-      font-size:30rem/@baseFontSize;
-      margin-top:20rem/@baseFontSize;
+      font-size:30px;
+      margin-top:20px;
     }
     .aside-contact {
-      margin-top:20rem/@baseFontSize;
+      margin-top:20px;
       li {
         float:left;
-        width:220rem/@baseFontSize;
-        height:220rem/@baseFontSize;
-        margin:0 10rem/@baseFontSize;
-        border-radius:10rem/@baseFontSize;
+        width:220px;
+        height:220px;
+        margin:0 10px;
+        border-radius:10px;
         background-color: rgba(255,255,255,.1);
         text-align:center;
         overflow:hidden;
@@ -57,11 +58,11 @@
           display:block;
           width:100%;
           height:100%;
-          line-height:220rem/@baseFontSize;
+          line-height:220px;
           text-align:center;
         }
         span.fa {
-          font-size:30rem/@baseFontSize;
+          font-size:30px;
         }
         a {
           position:absolute;
@@ -72,9 +73,9 @@
           background-color: #CEBB3B;
           width:100%;
           height:100%;
-          line-height:220rem/@baseFontSize;
+          line-height:220px;
           text-align:center;
-          transform:translateY(220rem/@baseFontSize);
+          transform:translateY(220px);
           overflow:hidden;
           transition:transform .3s;
         }
@@ -82,7 +83,7 @@
           transform:translateY(0);
         }
         img {
-          width:220rem/@baseFontSize;
+          width:220px;
         }
       }
     }

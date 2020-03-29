@@ -1,4 +1,4 @@
-<div class="main-content meethigher-scroll">
+<div class="main-content">
     <div class="main-content-post">
         <% page.posts.each(function (post) { %>
             <article class="post">
@@ -18,7 +18,7 @@
                     <% } %>
                 </div>
                 <div class="post-media">
-                    <span class="post-time">posted&nbsp;@&nbsp;<%- date(post.date, "YYYY-MM-DD HH:mm:ss") %>&nbsp;<%- config.author %></span>
+                    <span class="post-time">posted&nbsp;@&nbsp;<%- date(post.date, "YYYY-MM-DD HH:mm:ss") %></span>
                 </div>
             </article>
         <% }) %>

@@ -1,6 +1,7 @@
 <div class="main-content meethigher-scroll">
     <div class="tag-tags">
         <% if(!is_tag()) { %>
+        <% page.title="标签云" %>
             <span class="tags-title">标签云&nbsp;-&nbsp;共<%= site.tags.length %>个</span>
             <ul class="tags-all clearFix">
                 <% for(let key in site.tags.data) { %>

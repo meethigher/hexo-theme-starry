@@ -5,25 +5,9 @@ Menu:
   Tag:
     url: /tags
     text: 标签
-#  Category:
-#    url: /categories
-#    text: 分类
   Archive:
     url: /archives
     text: 归档
-#  Search:
-#    url: /search
-#    text: 导航
-#  Music:
-#    url: /music
-#    text: 音乐
-#  About:
-#    url: /about
-#    text: 关于
-#  Navigate:
-#    url: https://so.meethigher.top/
-#    text: 导航
-
 Icon:
    Favicon: /images/favicon.ico
 Aside:

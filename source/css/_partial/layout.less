@@ -1,120 +1,101 @@
-.main {
-  width:100%;
-  height:100%;
-  padding:80rem/@baseFontSize 0 0 0;
-  overflow:hidden;
+#particles-js {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right:0;
+  bottom:0;
+  //width: 100%;
+  //height: 100%;
+  background-color: @colorDiy;
+  z-index: -1;
+}
+
+.main-content {
+  margin: 50px auto 0;
+  overflow: hidden;
+  font-size: 18px;
+
   a {
     transition: all 0.3s ease !important;
 
     &:hover {
-      color: @colorFontHover  !important;
+      color: @colorFontHover !important;
+      border-color: @colorFontHover !important;
       text-decoration: none !important;
     }
   }
-  .arrow {
-    display:none;
-    padding:5rem/@baseFontSize 15rem/@baseFontSize;
-    border-radius:10rem/@baseFontSize;
-    background-color:rgba(255,255,255,.2) ;
-    color:@colorFont;
-    position:absolute;
-    left:0;
-    &.fa-arrow-down {
-      bottom:20rem/@baseFontSize;
+
+  .post {
+    border-bottom: 2px solid @blog-border-color;
+    padding: 20px;
+
+    .post-title {
+      font-size: 21px;
     }
-    &.fa-arrow-up {
-      top:100rem/@baseFontSize;
+
+    .post-excerpt {
+      padding: 10px 0;
     }
+
+    .post-content {
+      font-size: 16px;
+      padding-bottom: 10px;
+
+      a {
+        padding: 2px 9px;
+        border: 1px solid @colorFont;
+        border-radius: 10px;
+      }
+
+      .article-tag-list {
+        float: right;
+
+        .article-tag-list-item {
+          float: left;
+          padding: 0 1px;
+        }
+      }
+    }
+
+    .post-media {
+      font-size: 16px;
+      text-align: right;
+    }
+
+
   }
-  .main-content {
-    width:100%;
-    height:100%;
-    background-color: @colorBg;
-    padding:50rem/@baseFontSize 50rem/@baseFontSize;
-    overflow:auto;
-    .post {
-      border-radius:20rem/@baseFontSize;
-      padding:40rem/@baseFontSize 20rem/@baseFontSize;
-      min-width:100%;
-      background-color: rgba(255,255,255,.1);
-      margin-bottom:50rem/@baseFontSize;
-      overflow:hidden;
-      .post-title {
-        a {
-          font-size:25rem/@baseFontSize;
-          color:@colorFont;
-        }
-        h2 {
-          margin:10rem/@baseFontSize 0;
-        }
+  .post-nav {
+    text-align: center;
+    margin-top:40px;
+    .page-nav {
+      display: inline-block;
+      .page-number, .extend.prev, .extend.next {
+        padding: 5px 15px;
+        border-radius: 10px;
+        margin: 0 5px;
+        border:1px solid @colorFont;
+        color: @colorFont;
+        float:left;
       }
-      .post-excerpt {
-        margin-top:40rem/@baseFontSize;
+      span.space {
+        float:left;
       }
-      .post-content {
-        margin-top:40rem/@baseFontSize;
-        a {
-          padding:5rem/@baseFontSize 15rem/@baseFontSize;
-          border-radius:10rem/@baseFontSize;
-          background-color:rgba(255,255,255,.2) ;
-          color:@colorFont;
-        }
-        .article-tag-list {
-          float:right;
-          .article-tag-list-item {
-            float:left;
-            margin:0 5rem/@baseFontSize;
-          }
-        }
-      }
-      .post-media {
-        margin-top:40rem/@baseFontSize;
-        text-align:right;
-        .post-time {
-          font-size:15rem/@baseFontSize;
-        }
-        a {
-          padding:5rem/@baseFontSize 15rem/@baseFontSize;
-          border-radius:10rem/@baseFontSize;
-          background-color:rgba(255,255,255,.2) ;
-          color:@colorFont;
-        }
-        .article-tag-list {
-          float:left;
-          .article-tag-list-item {
-            float:left;
-            margin:0 5rem/@baseFontSize;
-          }
-        }
-      }
-    }
-    .post-nav {
-      text-align:center;
-      .page-nav {
-        display:inline-block;
-        vertical-align: middle;
-        .page-number,.extend.prev,.extend.next {
-          padding:5rem/@baseFontSize 15rem/@baseFontSize;
-          border-radius:10rem/@baseFontSize;
-          margin:0 5rem/@baseFontSize;
-          background-color:rgba(255,255,255,.2) ;
-          color:@colorFont;
-        }
-        span.page-number {
-          color:@colorFontHover;
-        }
-        a.page-number {
-        }
+      span.page-number {
+        color: @colorFontHover;
+        border-color:@colorFontHover;
       }
     }
   }
 }
-#particles-js {
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  background-color: @colorDiy;
-  z-index:-1;
+
+@media screen and (min-width: 960px) {
+  .main-content {
+    width: 960px;
+  }
+}
+
+@media screen and (max-width: 960px) {
+  .main-content {
+    width: 100%;
+  }
 }
