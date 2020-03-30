@@ -25,14 +25,45 @@ $ npm install hexo-renderer-less --save
 $ npm install hexo-generator-searchdb --save
 ```
 
+Install hexo-neat
+
+```npm
+$ npm install hexo-generator-searchdb --save
+```
+
 Add the following to _config.yml
 
 ```npm
+# 站内搜索功能
+# 安装插件npm install hexo-generator-searchdb --save
 search:
-  path: meethigher.xml
+  path: meethigher.json
+  ##当然也可以用xml存储，但是需要打开meethigher.js下的注释
   field: post
-  format: html
-  limit: 10000
+  content: true
+  format: raw
+
+# hexo-neat
+# 安装插件npm install hexo-neat --save
+# 博文压缩
+neat_enable: true
+# 压缩html
+neat_html:
+  enable: true
+  exclude:
+# 压缩css  
+neat_css:
+  enable: true
+  exclude:
+    - '**/*.min.css'
+# 压缩js
+neat_js:
+  enable: false
+  mangle: true
+  output:
+  compress:
+  exclude:
+    - '**/*.min.js'
 ```
 
 Set the path of root(Not required, but may cause other problems)
