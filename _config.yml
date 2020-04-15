@@ -19,3 +19,5 @@ Aside:
   Weixin: /images/weixin.png
 Footer:
   counter: true
+  #网站开始运行的时间，格式"YYYY/MM/DD HH:mm:ss"，不填写，默认时间为2020年4月1日
+  begin: "2019/09/15 19:57:09"

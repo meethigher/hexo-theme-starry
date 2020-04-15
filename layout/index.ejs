@@ -24,10 +24,14 @@
         <% }) %>
         <%- partial("_partial/paginator") %>
         <% if (theme.Footer.counter){ %>
-                <div class="busuanzi">
-                    <span id="busuanzi_container_site_pv">总访问量<span id="busuanzi_value_site_pv"></span>次</span><span class="post-meta-divider">|</span><span id="busuanzi_container_site_uv">访客数<span id="busuanzi_value_site_uv"></span>人</span>
-                    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-                </div>
+            <div class="busuanzi">
+                <span style="display:none" class="begin"><%= theme.Footer.begin %></span>
+                网站运行时间<span id="d"></span>天<span id="h"></span>时<span id="m"></span>分<span id="s"></span>秒<br><span
+                        id="busuanzi_container_site_pv">总访问量<span id="busuanzi_value_site_pv"></span>次</span><span
+                        class="post-meta-divider">|</span><span id="busuanzi_container_site_uv">访客数<span
+                            id="busuanzi_value_site_uv"></span>人</span>
+                <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            </div>
         <% } %>
     </div>
 </div>
