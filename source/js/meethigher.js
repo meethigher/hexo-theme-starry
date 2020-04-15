@@ -47,8 +47,12 @@ $(function () {
     });
     $copy.on("click", function () {
         let $pre = $(this).find(".code pre");
-        let text = $pre.text();
-        let $input = $("<input>");
+        let $line=$(this).find(".code .line");
+        let text="";
+        $line.each(function (){
+        	text=text+$(this).text()+"\n";
+        });
+        let $input = $("<textarea>");
         let $copySuccess = $("<span>success</span>");
         $copySuccess.addClass("before");
         $input.val(text);
