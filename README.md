@@ -28,7 +28,7 @@ $ npm install hexo-generator-searchdb --save
 Install hexo-neat
 
 ```npm
-$ npm install hexo-generator-searchdb --save
+$ npm install hexo-neat --save
 ```
 
 Add the following to _config.yml

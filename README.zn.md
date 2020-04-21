@@ -28,7 +28,7 @@ $ npm install hexo-generator-searchdb --save
 安装hexo-neat插件
 
 ```npm
-$ npm install hexo-generator-searchdb --save
+$ npm install hexo-neat --save
 ```
 
 在网站下的_config.yml添加
