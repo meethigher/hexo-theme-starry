@@ -10,6 +10,8 @@ Menu:
     text: 归档
 Icon:
    Favicon: /images/favicon.ico
+   ##此处放置的是三合一二维码
+   Payment: /images/alipay.png
 Aside:
   Avatar: /images/kitchen.jpg
   Author: 言成

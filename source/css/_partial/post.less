@@ -3,6 +3,9 @@
   text-align: center;
 }
 //下面是目录样式
+.yourclass {
+  overflow:hidden;
+}
 .outline {
   padding: 5px 15px;
   background-color: @colorDiy;
@@ -47,31 +50,25 @@
     font-size:26px;
   }
 }
-.post-media2 {
-  margin-top: 20px;
-
-  .post-time {
-    padding: 5px 15px;
-    border-radius: 10px;
-    border:1px solid @colorFont;
-    color: @colorFont;
+.post-btn {
+  text-align:center;
+  margin-top:10px;
+  .post-donation-btn,.post-share-btn {
+    cursor:pointer;
+    padding:5px 15px;
+    border-radius:10px;
   }
-
-  .article-tag-list {
-    float: left;
-
-    .article-tag-list-item {
-      float: left;
-      margin: 0 5px;
-
-      a {
-        padding: 5px 15px;
-        border-radius: 10px;
-        border:1px solid @colorFont;
-        color: @colorFont;
-      }
-    }
+  .post-donation-btn {
+    background-color: @blog-font-color;
   }
+  .post-share-btn {
+    background-color: @comment-font-color;
+  }
+}
+.post-detail {
+  color:@blog-theme-color;
+  text-align:left;
+  font-size:15px;
 }
 @media screen and (max-width:960px) {
  .post-media2 {
@@ -174,7 +171,7 @@
   }
   /*设置表格*/
 
-  > table {
+  >table {
     font-size: 16px;
     border-collapse: collapse;
     border-spacing: 0;
@@ -221,7 +218,7 @@
   code {
     color: @colorFont;
     line-height: 1;
-    padding: 3px 4px;
+    padding: 1px 4px;
     margin: 0 3px;
     border-radius: 3px !important;
     border: 1px solid @post-table-border-color;
@@ -246,7 +243,6 @@
       padding: 5px 6px 6px 6px;
       border-radius: 10px;
     }
-
     table {
       width: 100%;
       position: relative;

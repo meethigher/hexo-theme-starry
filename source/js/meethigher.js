@@ -9,7 +9,31 @@ $(function () {
     let flag = false;
     let isClick = true;
     let current=window.scrollY;
+    let $donationBtn=$(".post-donation-btn");
+    let $shareBtn=$(".post-share-btn");
     printDefaultLog();
+
+    $donationBtn.on("click",function (){
+        let src=$(".post-btn img").attr("src");
+        layer.open({
+            type: 1,
+            title: false,
+            closeBtn: 0,
+            shadeClose: true,
+            skin: 'yourclass',
+            content: '<img src='+src+' width="360px">'
+        });
+    });
+    $shareBtn.on("click",function (){
+        let text=$(".shareUrl").text();
+        let $input=$("<textarea>");
+        $input.val(text);
+        $(this).append($input);
+        $input.select();
+        document.execCommand("Copy");
+        $input.remove();
+        layer.alert('已复制分享链接，可以分享给别人啦');
+    });
 
     function printDefaultLog() {
         console.log("%c@theme：Starry\n@author：Kit Chen\n@link：https://github.com/meethigher/hexo-theme-starry\n@createDate：2019-09-16\n@页面加载耗时："+(performance.now()/1000).toFixed(2)+"秒", "font-size:18px; font-weight:bold; color:#24a0f0;")

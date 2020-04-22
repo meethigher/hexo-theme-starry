@@ -52,7 +52,7 @@ meta_generator: false
 
 # URL
 ## 如果你的网站是放在子文件夹下，root路径就可以设置成/xxx/，否则的话，直接/就行
-url: https://meethigher.top/
+url: https://meethigher.top/blog/
 root: /blog/
 ## permalink: :year/:month/:day/:title/
 permalink: :year/:title/
@@ -159,14 +159,6 @@ neat_js:
     - '**/*.min.js'
 ```
 
-Set the path of root(Not required, but may cause other problems)
-
-```npm
-# URL
-## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: 你的网站地址
-root: /blog/
-```
 
 Enjoy using it!
 
