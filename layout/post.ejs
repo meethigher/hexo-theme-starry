@@ -7,13 +7,15 @@
             <%- page.more %>
         </div>
         <div class="post-detail">
-            最后修改：<%- date(page.updated, "YYYY-MM-DD HH:mm:ss") %><br>原文链接：<span class="shareUrl"><%- page.permalink %></span>
+            最后修改：<%- date(page.updated, "YYYY-MM-DD HH:mm:ss") %><br>原文链接：<span
+                    class="shareUrl"><%- page.permalink %></span>
         </div>
         <div class="post-btn">
-            <img src="<%- url_for(theme.Icon.Payment)%>" style="display:none" alt="付款码">
+            <img src="<%- url_for(theme.Icon.Payment) %>" style="display:none" alt="付款码">
             <span class="post-donation-btn">捐助</span>
             <span class="post-share-btn">分享</span>
         </div>
+        <%- partial("_partial/comment.ejs") %>
         <% if (theme.Footer.counter){ %>
             <div class="busuanzi">
                 <span id="busuanzi_container_page_pv">阅读量<span id="busuanzi_value_page_pv"></span>次</span>
@@ -21,5 +23,5 @@
             </div>
         <% } %>
     </article>
-    <div class="outline">目录</div>
+    <div class="outline" title="目录"><span class="fa fa-list-alt"></span></div>
 </div>

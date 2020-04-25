@@ -9,7 +9,7 @@ Language:
 
 ![Starry]( https://d33wubrfki0l68.cloudfront.net/a01d67aa4c9ed9597c21e06eaa91ca499a3f2d3c/fc9cc/themes/screenshots/starry.jpg )
 
-I finished it in my spare time，preview：[言成言成啊](https://meethigher.top/)
+I finished it in my spare time，preview：[I'm Kit Chen](https://meethigher.top/)
 
 Starry is developed by `Less` and `Ejs`.
 
@@ -29,6 +29,34 @@ Install hexo-neat
 
 ```npm
 $ npm install hexo-neat --save
+```
+
+Install hexo-generator-index-pin-top
+
+```npm
+$ npm install hexo-generator-index-pin-top --save
+```
+
+If you want to top it, you set it like this
+
+```markdown
+---
+title: xxx
+date: xxx
+tags: xxx
+top: true
+---
+```
+
+If you want to close one post's comments
+
+```markdown
+---
+title: xxx
+date: xxx
+tags: xxx
+comments: false
+---
 ```
 
 This is my _config.yml
@@ -157,6 +185,17 @@ neat_js:
   compress:
   exclude:
     - '**/*.min.js'
+# 评论配置，下面的内容，换成自己的
+# http://blog.poetries.top/2018/11/20/hexo-comment/具体可参照这个大佬的博客
+gitalk:
+  enable: false
+  githubID: meethigher
+  repo: meethigher.github.io #在github上建一个public的库，不一定是github.io，也可以是comments，总之随意了
+  owner: meethigher
+  ClientID: 84xxxxxx
+  ClientSecret: a0xxxxxx
+  adminUser: meethigher #指定可初始化评论账户
+  distractionFreeMode: true #类似于Facebook的分散注意力模式
 ```
 
 

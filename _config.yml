@@ -8,17 +8,13 @@ Menu:
   Archive:
     url: /archives
     text: 归档
+  About:
+    url: /about
+    text: 关于
 Icon:
    Favicon: /images/favicon.ico
-   ##此处放置的是三合一二维码
+   ##此处放置收款码
    Payment: /images/alipay.png
-Aside:
-  Avatar: /images/kitchen.jpg
-  Author: 言成
-  Description: 爱学习，爱运动，爱看妹子
-  Github: https://github.com/meethigher
-  Email: meethigher@qq.com
-  Weixin: /images/weixin.png
 Footer:
   counter: true
   #网站开始运行的时间，格式"YYYY/MM/DD HH:mm:ss"，不填写，默认时间为2020年4月1日

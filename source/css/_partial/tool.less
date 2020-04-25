@@ -1,16 +1,18 @@
-.search {
-  padding: 5px 15px;
-  background-color: @colorDiy;
+.search{
+  width:45px;
+  height:45px;
+  line-height:45px;
+  text-align:center;
+  background-color: @blog-theme-color;
   border:1px solid @blog-border-color;
   color: @colorFont;
   cursor: pointer;
   position: fixed;
-  top: 150px;
-  right: 0;
-  border-radius: 10px;
+  bottom: 100px;
+  right: 10px;
+  border-radius: 50%;
   z-index:1001;
 }
-
 @media screen and (max-width: 960px) {
   .search {
     display: none;

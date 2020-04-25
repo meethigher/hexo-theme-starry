@@ -21,7 +21,7 @@ $(function () {
             closeBtn: 0,
             shadeClose: true,
             skin: 'yourclass',
-            content: '<img src='+src+' width="360px">'
+            content: '<img src='+src+' width="320px">'
         });
     });
     $shareBtn.on("click",function (){
@@ -240,7 +240,7 @@ $(function () {
             skin: 'layui-layer-rim', //加上边框
             area: ['320px', '240px'], //宽高
             content: "<div class=\"search-container\">\n" +
-                "    <input type=\"search\" placeholder=\"搜索\" id=\"input\" autocomplete='off'>\n" +
+                "    <input type=\"search\" placeholder=\"搜索\" id=\"input\" autocomplete=\"off\" autofocus=\"autofocus\">\n" +
                 "    <div class=\"btn-search\"><span class=\"fa fa-search\"></span></div>\n" +
                 "    <ul class=\"result\"></ul>\n" +
                 "</div>"

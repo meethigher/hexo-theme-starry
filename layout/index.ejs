@@ -3,7 +3,7 @@
         <% page.posts.each(function (post) { %>
             <article class="post">
                 <div class="post-title">
-                    <a href="<%- url_for(post.path) %>"><%= post.title %></a>
+                    <a href="<%- url_for(post.path) %>"> <% if(post.top) { %>[顶]<% } %><%= post.title %></a>
                 </div>
                 <div class="post-excerpt">
                     <%- post.excerpt %>

@@ -4,19 +4,23 @@
 }
 //下面是目录样式
 .yourclass {
-  overflow:hidden;
+  overflow: hidden;
 }
+
 .outline {
-  padding: 5px 15px;
-  background-color: @colorDiy;
-  border:1px solid @blog-border-color;
+  width:45px;
+  height:45px;
+  line-height:45px;
+  text-align:center;
+  background-color: @post-catalog-font-color;
+  border: 1px solid @blog-border-color;
   color: @colorFont;
   cursor: pointer;
   position: fixed;
-  top: 200px;
-  right: 0;
-  border-radius: 10px;
-  z-index:1001;
+  bottom: 50px;
+  right: 10px;
+  border-radius: 50%;
+  z-index: 1001;
 }
 
 .layui-layer-page {
@@ -27,60 +31,74 @@
 
 .layui-layer-title {
   border-top-left-radius: 10px !important;
-  border-top-right-radius:10px !important;
+  border-top-right-radius: 10px !important;
 }
+
 .layui-layer-content ul {
-  list-style:none;
+  list-style: none;
 }
+
 .layui-layer-dialog {
   background-color: #13172F !important;
   border: 1px solid #fff !important;
   border-radius: 10px !important;
 }
+
 .catalog-container {
-  padding:5px 10px;
-  font-size:16px;
+  padding: 5px 10px;
+  font-size: 16px;
 }
+
 .catalog-container ul li a {
   text-decoration: underline;
 }
+
 //上面是目录样式
 .post-title {
   .title {
-    font-size:26px;
+    font-size: 26px;
   }
 }
+
 .post-btn {
-  text-align:center;
-  margin-top:10px;
-  .post-donation-btn,.post-share-btn {
-    cursor:pointer;
-    padding:5px 15px;
-    border-radius:10px;
+  text-align: center;
+  margin-top: 30px;
+
+  .post-donation-btn, .post-share-btn {
+    cursor: pointer;
+    padding: 5px 15px;
+    border-radius: 10px;
   }
+
   .post-donation-btn {
     background-color: @blog-font-color;
   }
+
   .post-share-btn {
     background-color: @comment-font-color;
   }
 }
+
 .post-detail {
-  color:@blog-theme-color;
-  text-align:left;
-  font-size:15px;
+  color: @blog-theme-color;
+  text-align: left;
+  font-size: 15px;
 }
-@media screen and (max-width:960px) {
- .post-media2 {
-   display:none;
- }
-}
-.blog-markdown {
-  font-size: 17px !important;
-  .headerlink,a {
-    border:0 !important;
-    padding:0 !important;
+
+@media screen and (max-width: 960px) {
+  .post-media2 {
+    display: none;
   }
+}
+
+.blog-markdown {
+  font-size: @font-size !important;
+
+  .headerlink, a {
+    border: 0 !important;
+    padding: 0 !important;
+  }
+
   /*设置h标签*/
   .postSize(@fontSize) {
     font-size: @fontSize !important;
@@ -123,10 +141,34 @@
 
   ul {
     list-style-type: disc;
+
+    li {
+      > ul {
+        list-style-type: circle;
+
+        li {
+          ul {
+            list-style-type: square;
+          }
+        }
+      }
+    }
   }
 
   ol {
     list-style-type: decimal;
+
+    li {
+      > ul {
+        list-style-type: circle;
+
+        li {
+          ul {
+            list-style-type: square;
+          }
+        }
+      }
+    }
   }
 
   /*设置引用标签*/
@@ -171,7 +213,7 @@
   }
   /*设置表格*/
 
-  >table {
+  > table {
     font-size: 16px;
     border-collapse: collapse;
     border-spacing: 0;
@@ -243,12 +285,13 @@
       padding: 5px 6px 6px 6px;
       border-radius: 10px;
     }
+
     table {
       width: 100%;
       position: relative;
 
       .line {
-        font-family: comic,Consolas,sans-serif !important;
+        font-family: comic, Consolas, sans-serif !important;
         line-height: 12px;
 
         .comment,

@@ -13,7 +13,7 @@
 .main-content {
   margin: 50px auto 0;
   overflow: hidden;
-  font-size: 17px;
+  font-size: @font-size;
 
   a {
     transition: all 0.3s ease !important;
@@ -28,6 +28,20 @@
   .post {
     border-bottom: 2px solid @blog-border-color;
     padding: 20px;
+
+    .post-comment {
+      margin-top: 30px;
+      .instruction {
+        display:block;
+        text-align:center;
+      }
+      //gitalk评论
+      #gitalk-container {
+        .gt-meta {
+          border:none;
+        }
+      }
+    }
 
     .post-title {
       font-size: 21px;
