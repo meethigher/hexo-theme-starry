@@ -11,10 +11,16 @@ Menu:
   About:
     url: /about
     text: 关于
+# 图标放到source文件夹
 Icon:
-   Favicon: /images/favicon.ico
-   ##此处放置收款码
-   Payment: /images/alipay.png
+  # 此处放置网站图标
+  Favicon: /images/favicon.ico
+  # 此处放置收款码
+  Payment: /images/alipay.png
+# 是否开启侧边栏的小工具
+Tool:
+  enable: true
+  app: /app.apk
 Footer:
   counter: true
   #网站开始运行的时间，格式"YYYY/MM/DD HH:mm:ss"，不填写，默认时间为2020年4月1日

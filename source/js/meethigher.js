@@ -1,3 +1,11 @@
+//这是为了防止锚点跳转后被顶部导航栏遮住
+//兼容效果并不好
+// window.onhashchange=function (){
+//     let top=window.scrollY;
+//     top-=50;
+//     window.scrollTo(0,top);
+
+// };
 $(function () {
     let $menu = $(".header-menu");
     let $headerNavbar = $(".header-navbar");
@@ -11,17 +19,17 @@ $(function () {
     let current=window.scrollY;
     let $donationBtn=$(".post-donation-btn");
     let $shareBtn=$(".post-share-btn");
+    let src=$(".post-btn img").attr("src");
     printDefaultLog();
 
     $donationBtn.on("click",function (){
-        let src=$(".post-btn img").attr("src");
         layer.open({
             type: 1,
             title: false,
             closeBtn: 0,
             shadeClose: true,
             skin: 'yourclass',
-            content: '<img src='+src+' width="320px">'
+            content: '<img src='+src+' width="320px" height="500px">'
         });
     });
     $shareBtn.on("click",function (){
@@ -108,6 +116,14 @@ $(function () {
             direction>0?$header.removeClass("in").addClass("out"):$header.removeClass("out").addClass("in");
         }
         current=currentY;
+    });
+    $(".up").on("click",function (){
+        window.scrollTo(0,0);
+    });
+    $(".down").on("click",function (){
+        let t_height=document.body.scrollHeight;
+        let w_height=window.innerHeight;
+        window.scrollTo(0,t_height-w_height);
     });
 });
 //生成文章的目录
@@ -240,7 +256,7 @@ $(function () {
             skin: 'layui-layer-rim', //加上边框
             area: ['320px', '240px'], //宽高
             content: "<div class=\"search-container\">\n" +
-                "    <input type=\"search\" placeholder=\"搜索\" id=\"input\" autocomplete=\"off\" autofocus=\"autofocus\">\n" +
+                "    <input type=\"search\" placeholder=\"搜索\" id=\"input\" autocomplete=\"off\">\n" +
                 "    <div class=\"btn-search\"><span class=\"fa fa-search\"></span></div>\n" +
                 "    <ul class=\"result\"></ul>\n" +
                 "</div>"
