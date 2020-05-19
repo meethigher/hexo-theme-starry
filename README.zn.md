@@ -68,7 +68,7 @@ $ hexo new page about
 
 文章的格式
 
-```hexo
+```markdown
 ---
 title: helloworld
 date: 2020-05-19 09:26:20

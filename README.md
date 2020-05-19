@@ -67,7 +67,7 @@ $ hexo new page about
 
 Article format
 
-```
+```markdown
 ---
 title: helloworld
 date: 2020-05-19 09:26:20
