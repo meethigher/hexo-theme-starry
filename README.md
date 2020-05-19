@@ -59,6 +59,31 @@ comments: false
 ---
 ```
 
+Generate about
+
+```npm
+$ hexo new page about
+```
+
+Article format
+
+```
+---
+title: helloworld
+date: 2020-05-19 09:26:20
+tags: xxx
+top: true
+---
+
+此处是文章简介
+
+<!--more-->
+
+此处是文章内容
+
+```
+
+
 This is my _config.yml
 
 ```npm
