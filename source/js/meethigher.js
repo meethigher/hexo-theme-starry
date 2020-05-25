@@ -4,7 +4,6 @@
 //     let top=window.scrollY;
 //     top-=50;
 //     window.scrollTo(0,top);
-
 // };
 $(function () {
     let $menu = $(".header-menu");
@@ -22,6 +21,7 @@ $(function () {
     let src=$(".post-btn img").attr("src");
     printDefaultLog();
 
+    $mainContent.animate({"opacity":"1"});
     $donationBtn.on("click",function (){
         layer.open({
             type: 1,
