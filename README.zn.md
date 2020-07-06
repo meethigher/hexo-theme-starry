@@ -1,43 +1,49 @@
-## Starry主题
+## hexo-theme-starry
 
-欢迎使用
+Welcome!
 
-语言：
+Language:
 
-1. [English](https://github.com/meethigher/hexo-theme-starry)
-2. 中文
+1. English
+2. [中文](https://github.com/meethigher/hexo-theme-starry)
 
 ![Starry]( https://d33wubrfki0l68.cloudfront.net/a01d67aa4c9ed9597c21e06eaa91ca499a3f2d3c/fc9cc/themes/screenshots/starry.jpg )
 
-闲得没事写的，预览：[I'm Kit Chen](https://meethigher.top/)
+I finished it in my spare time，preview：[I'm Kit Chen](https://meethigher.top/)
 
-本主题采用的是less跟ejs开发的。
+Starry is developed by `Less` and `Ejs`.
 
-直接下载可能不能使用，需要安装less
+You can't use it directly, unless you have installed `Less`
 
 ```npm
 $ npm install hexo-renderer-less --save
 ```
 
- 安装searchdb插件
+ Install searchdb
 
 ```npm
 $ npm install hexo-generator-searchdb --save
 ```
 
-安装hexo-neat插件
+Install hexo-neat
 
 ```npm
 $ npm install hexo-neat --save
 ```
 
-安装hexo-generator-index-pin-top插件
+Install hexo-generator-index-pin-top
 
 ```npm
 $ npm install hexo-generator-index-pin-top --save
 ```
 
-如果你想要置顶的时候，就这样设置
+Install hexo-lazyload-image
+
+```npm
+$ npm install hexo-lazyload-image --save
+```
+
+If you want to top it, you set it like this
 
 ```markdown
 ---
@@ -48,25 +54,24 @@ top: true
 ---
 ```
 
-如果想要关闭某一篇文章的评论功能
+If you want to close one post's comments
 
 ```markdown
 ---
 title: xxx
 date: xxx
 tags: xxx
-top: true
 comments: false
 ---
 ```
 
-生成about
+Generate about
 
 ```npm
 $ hexo new page about
 ```
 
-文章的格式
+Article format
 
 ```markdown
 ---
@@ -84,7 +89,8 @@ top: true
 
 ```
 
-这是我的_config.yml
+
+This is my _config.yml
 
 ```npm
 # Hexo Configuration
@@ -94,8 +100,8 @@ top: true
 # Site 网站配置
 title: 言成言成啊
 subtitle: Kit Chen's Blog
-description: 言成的个人博客网站,寓意为相逢在更高处
-keywords: 让我们相逢在更高处,个人博客,个人网站,言成言成啊,学习,生活,个人博客
+description: 言成的个人博客网站，meethigher寓意为相逢在更高处，这里面记录着我的感情、学习和生活
+keywords: 个人网站，个人博客，meethigher，学习，生活
 author: 言成
 language: zh-CN
 ## 时区
@@ -146,8 +152,9 @@ index_generator:
   path: ''
   per_page: 10
   order_by: -date
+## 禁用tag分页
 tag_generator:
-  per_page: 10
+  per_page: 0
   enable_index_page: true
 ## 禁用archive分页
 archive_generator:
@@ -192,7 +199,7 @@ search:
 # hexo-neat
 # 安装插件npm install hexo-neat --save
 # 博文压缩
-neat_enable: true
+neat_enable: false
 # 压缩html
 neat_html:
   enable: true
@@ -213,19 +220,24 @@ neat_js:
 # 评论配置，下面的内容，换成自己的
 # http://blog.poetries.top/2018/11/20/hexo-comment/具体可参照这个大佬的博客
 gitalk:
-  enable: true #关闭站点评论功能
+  enable: true
   githubID: meethigher
   repo: meethigher.github.io #在github上建一个public的库，不一定是github.io，也可以是comments，总之随意了
   owner: meethigher
-  ClientID: 84xxxxxx
-  ClientSecret: a0xxxxxx
+  ClientID: 84249
+  ClientSecret: a032ae7096
   adminUser: meethigher #指定可初始化评论账户
   distractionFreeMode: true #类似于Facebook的分散注意力模式
+
+# hexo-lazyload-image插件，为了适应该主题，部分内容经过修改了。
+lazyload:
+  enable: true
+  onlypost: false
+  loadingImg: data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAANSURBVBhXYzh8+PB/AAffA0nNPuCLAAAAAElFTkSuQmCC
+  isSPA: false
 ```
 
-尽情使用吧！
 
-我的邮箱：meethigher@qq.com/meethigher@gmail.com
+Enjoy using it!
 
-
-
+E-mail：meethigher@qq.com/meethigher@gmail.com
