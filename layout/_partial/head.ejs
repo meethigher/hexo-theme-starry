@@ -5,22 +5,28 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <%
     let title = page.title;
-    let description = page.title;
+    let description=page.excerpt;
+    let keywords=config.keywords;
     if (is_archive()) {
         title = theme.Menu.Archive.text;
     } else if (is_tag()) {
-        title = theme.Menu.Tag.text+"-"+page.tag;
+        title = theme.Menu.Tag.text + "-" + page.tag;
     }
     if (!title) {
-        title = config.author+"的个人博客";
-        description = config.description;
+        title = config.author + "的个人博客";
+    }else{
+        keywords=title+","+keywords;
+    }
+    if(!description){
+        description=config.description;
+    }else{
+        description = description.replace(/<p>(.*?)<\/p>/g, "$1").replace(/[\r\n]/g, "");
     }
     %>
-    <meta name="keywords" content="<%= config.keywords %>"/>
+    <meta name="keywords" content="<%= keywords %>"/>
     <meta name="description" content="<%= description %>"/>
     <title><%= title %></title>
     <%- favicon_tag(theme.Icon.Favicon) %>
     <%- css("https://cdn.jsdelivr.net/gh/meethigher/cdn@9.0/css/meethigher-font.css") %>
-    <%- css("https://cdn.jsdelivr.net/gh/meethigher/cdn@9.0/css/animate.css") %>
     <%- css('css/index.css') %>
 </head>

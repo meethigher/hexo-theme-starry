@@ -11,7 +11,7 @@
                     class="shareUrl"><%- page.permalink %></span>
         </div>
         <div class="post-btn">
-            <img src="<%- url_for(theme.Icon.Payment) %>" style="display:none" alt="付款码">
+            <img no-lazy src="<%- url_for(theme.Icon.Payment) %>" style="display:none" alt="付款码">
             <span class="post-donation-btn">捐助</span>
             <span class="post-share-btn">分享</span>
         </div>
@@ -19,7 +19,7 @@
         <% if (theme.Footer.counter){ %>
             <div class="busuanzi">
                 <span id="busuanzi_container_page_pv">阅读量<span id="busuanzi_value_page_pv"></span>次</span>
-                <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+                <script defer src="<%- url_for("js/busuanzi.js") %>"></script>
             </div>
         <% } %>
     </article>
