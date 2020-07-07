@@ -1,8 +1,5 @@
 //在jquery的lazyload基础上修改了部分内容，调整了图片没有指定大小时候的小bug
-<<<<<<< HEAD
 //此处在2.1版本之后已经弃用，改用大佬开源的插件
-=======
->>>>>>> 938cd395b7206877f0bbf308b60bf42a01c4b046
 !function (t) {
     "function" == typeof define && define.amd ? define(["jquery"], t) : t(window.jQuery || window.Zepto)
 }(function (t, e) {
@@ -120,8 +117,4 @@ if (imgs.length > 0) {
         $(ele).attr("data-original", src).removeAttr("src")
     });
     imgs.lazyload({effect: "fadeIn"})
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 938cd395b7206877f0bbf308b60bf42a01c4b046

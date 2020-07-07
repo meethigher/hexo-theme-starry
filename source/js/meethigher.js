@@ -12,29 +12,29 @@ $(function () {
     let $arrowDown = $(".arrow.fa-arrow-down");
     let $mainContent = $(".main-content");
     let $copy = $("figure.highlight tbody");
-    let $header=$(".header");
+    let $header = $(".header");
     let flag = false;
     let isClick = true;
-    let current=window.scrollY;
-    let $donationBtn=$(".post-donation-btn");
-    let $shareBtn=$(".post-share-btn");
-    let src=$(".post-btn img").attr("src");
+    let current = window.scrollY;
+    let $donationBtn = $(".post-donation-btn");
+    let $shareBtn = $(".post-share-btn");
+    let src = $(".post-btn img").attr("src");
     printDefaultLog();
 
-    $mainContent.animate({"opacity":"1"});
-    $donationBtn.on("click",function (){
+    $mainContent.animate({"opacity": "1"});
+    $donationBtn.on("click", function () {
         layer.open({
             type: 1,
             title: false,
             closeBtn: 0,
             shadeClose: true,
             skin: 'yourclass',
-            content: '<img src='+src+' width="320px" height="500px">'
+            content: '<img src=' + src + ' width="320px" height="500px">'
         });
     });
-    $shareBtn.on("click",function (){
-        let text=$(".shareUrl").text();
-        let $input=$("<textarea>");
+    $shareBtn.on("click", function () {
+        let text = $(".shareUrl").text();
+        let $input = $("<textarea>");
         $input.val(text);
         $(this).append($input);
         $input.select();
@@ -44,7 +44,7 @@ $(function () {
     });
 
     function printDefaultLog() {
-        console.log("%c@theme：Starry\n@author：Kit Chen\n@link：https://github.com/meethigher/hexo-theme-starry\n@createDate：2019-09-16\n@页面加载耗时："+(performance.now()/1000).toFixed(2)+"秒", "font-size:18px; font-weight:bold; color:#24a0f0;")
+        console.log("%c@theme：Starry\n@author：Kit Chen\n@link：https://github.com/meethigher/hexo-theme-starry\n@createDate：2019-09-16\n@页面加载耗时：" + (performance.now() / 1000).toFixed(2) + "秒", "font-size:18px; font-weight:bold; color:#24a0f0;")
     }
 
     $menu.on("click", function () {
@@ -79,10 +79,10 @@ $(function () {
     });
     $copy.on("click", function () {
         let $pre = $(this).find(".code pre");
-        let $line=$(this).find(".code .line");
-        let text="";
-        $line.each(function (){
-        	text=text+$(this).text()+"\n";
+        let $line = $(this).find(".code .line");
+        let text = "";
+        $line.each(function () {
+            text = text + $(this).text() + "\n";
         });
         let $input = $("<textarea>");
         let $copySuccess = $("<span>success</span>");
@@ -107,23 +107,23 @@ $(function () {
     };
     getLanguage();
 
-    $(window).on("scroll",function (){
+    $(window).on("scroll", function () {
         let currentY = this.scrollY;
-        let direction=currentY>current;//大于0表示下滑，导航栏隐藏；小于0表示上滑，导航栏显示
-        if(this.scrollY<65){
+        let direction = currentY > current;//大于0表示下滑，导航栏隐藏；小于0表示上滑，导航栏显示
+        if (this.scrollY < 65) {
             $header.removeClass("out");
-        }else{
-            direction>0?$header.removeClass("in").addClass("out"):$header.removeClass("out").addClass("in");
+        } else {
+            direction > 0 ? $header.removeClass("in").addClass("out") : $header.removeClass("out").addClass("in");
         }
-        current=currentY;
+        current = currentY;
     });
-    $(".up").on("click",function (){
-        window.scrollTo(0,0);
+    $(".up").on("click", function () {
+        window.scrollTo(0, 0);
     });
-    $(".down").on("click",function (){
-        let t_height=document.body.scrollHeight;
-        let w_height=window.innerHeight;
-        window.scrollTo(0,t_height-w_height);
+    $(".down").on("click", function () {
+        let t_height = document.body.scrollHeight;
+        let w_height = window.innerHeight;
+        window.scrollTo(0, t_height - w_height);
     });
 });
 //生成文章的目录
@@ -180,9 +180,12 @@ $(function () {
     let title = [];
     let content = [];
     let ajaxing = false;
+    let loadingIndex;
 
     function ajaxSearch() {
         if (url.length == 0 || title.length == 0 || content.length == 0) {
+            // console.log("数据初次加载");
+            loadingIndex = layer.load(1, {shade: [0.1, '#fff']});
             ajaxing = true;
             $.ajax({
                 url: "/blog/meethigher.json",//此处需要修改成你的路径
@@ -208,6 +211,8 @@ $(function () {
                 },
                 complete: function () {
                     ajaxing = false;
+                    layer.close(loadingIndex);
+                    // console.log("数据加载完成");
                 }
             });
         }
@@ -249,7 +254,6 @@ $(function () {
     //================================================
 
     $(".search").on("click", function () {
-        ajaxSearch();
         layer.open({
             title: "站内搜索",
             type: 1,
@@ -261,6 +265,7 @@ $(function () {
                 "    <ul class=\"result\"></ul>\n" +
                 "</div>"
         });
+        ajaxSearch();
         let $input = $("#input");
         let $button = $(".btn-search");
         let $result = $(".result");
@@ -284,6 +289,7 @@ $(function () {
 //网站运行时间
 $(function () {
     let day = 0, hour = 0, minute = 0, second = 0;
+
     function timer(timestamp) {
         if (timestamp > 0) {
             day = Math.floor(timestamp / (60 * 60 * 24));
@@ -302,9 +308,9 @@ $(function () {
     }
 
     //获取开始时间
-    let beginTime=$(".begin").text()||"2020-04-01 00:00:00";
+    let beginTime = $(".begin").text() || "2020-04-01 00:00:00";
     window.setInterval(function () {
-        let res = Math.floor(Date.now() / 1000-Date.parse(new Date(beginTime)) / 1000);
+        let res = Math.floor(Date.now() / 1000 - Date.parse(new Date(beginTime)) / 1000);
         timer(res);
     }, 1000);
 });
