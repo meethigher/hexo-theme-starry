@@ -7,8 +7,8 @@
             <%- page.more %>
         </div>
         <div class="post-detail">
-            最后修改：<%- date(page.updated, "YYYY-MM-DD HH:mm:ss") %><br>原文链接：<span
-                    class="shareUrl"><%- page.permalink %></span>
+            发布：<%- date(page.date, "YYYY-MM-DD HH:mm:ss") %><br>修改：<%- date(page.updated, "YYYY-MM-DD HH:mm:ss") %><br>链接：<span
+                    class="shareUrl"><%- page.permalink %></span><br><% if (page.tags && page.tags.length){ %>标签：<span><% for(let i = 0;i < page.tags.length;i++){%><a href="<%- url_for(page.tags.data[i].path) %>"><%= page.tags.data[i].name %></a>&nbsp;<% } %></span><% } %>
         </div>
         <div class="post-btn">
             <img no-lazy src="<%- url_for(theme.Icon.Payment) %>" style="display:none" alt="付款码">
