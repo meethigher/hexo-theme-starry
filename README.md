@@ -31,12 +31,6 @@ $ npm install hexo-generator-searchdb --save
 $ npm install hexo-neat --save
 ```
 
-安装hexo-generator-index-pin-top插件
-
-```npm
-$ npm install hexo-generator-index-pin-top --save
-```
-
 安装hexo-lazyload-image
 
 ```npm
@@ -50,8 +44,45 @@ $ npm install hexo-lazyload-image --save
 title: xxx
 date: xxx
 tags: xxx
-top: true
+top: 5
 ---
+```
+
+> 举个例子，top:5 和 top:4 ,5的值较大，5会排在前面
+>
+> 参考文章：https://blog.csdn.net/nineya_com/article/details/103394315
+
+需要修改`node_modules\hexo-generator-index\lib\generator.js`
+
+```js
+'use strict';
+var pagination = require('hexo-pagination');
+module.exports = function(locals){
+  var config = this.config;
+  var posts = locals.posts;
+    posts.data = posts.data.sort(function(a, b) {
+        if(a.top && b.top) { // 两篇文章top都有定义
+            if(a.top == b.top) return b.date - a.date; // 若top值一样则按照文章日期降序排
+            else return b.top - a.top; // 否则按照top值降序排
+        }
+        else if(a.top && !b.top) { // 以下是只有一篇文章top有定义，那么将有top的排在前面（这里用异或操作居然不行233）
+            return -1;
+        }
+        else if(!a.top && b.top) {
+            return 1;
+        }
+        else return b.date - a.date; // 都没定义按照文章日期降序排
+    });
+  var paginationDir = config.pagination_dir || 'page';
+  return pagination('', posts, {
+    perPage: config.index_generator.per_page,
+    layout: ['index', 'archive'],
+    format: paginationDir + '/%d/',
+    data: {
+      __index: true
+    }
+  });
+};
 ```
 
 如果想要关闭某一篇文章的评论功能
