@@ -11,7 +11,7 @@ Language:
 
 I finished it in my spare time，preview：[I'm Kit Chen](https://meethigher.top/)
 
-Starry is developed by `Less` and `Ejs`.
+Starry is developed by `Less` and `Ejs`. 
 
 You can't use it directly, unless you have installed `Less`
 
