@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="zh-CN">
 <%- partial("_partial/head") %>
 <body>
 <%- partial("_partial/header") %>
@@ -12,6 +12,7 @@
 </main>
 <%- js("https://cdn.jsdelivr.net/gh/meethigher/cdn@9.0/js/jquery.min.js") %>
 <%- js("https://cdn.jsdelivr.net/gh/meethigher/cdn@11/js/layer/layer.js") %>
+<%- js("js/check-ua.js") %>
 <%- js("https://cdn.jsdelivr.net/gh/meethigher/cdn@13/js/instantpage.js") %>
 <%- js("js/meethigher.js") %>
 <% if (theme.lazyload.enable){ %><script>let imgs = $(".post-content.blog-markdown img");imgs.css("width", "100%");</script><% } %>

@@ -2,16 +2,17 @@
   margin-top: 10px;
   text-align: center;
 }
+
 //下面是目录样式
 .yourclass {
   overflow: hidden;
 }
 
 .outline {
-  width:45px;
-  height:45px;
-  line-height:45px;
-  text-align:center;
+  width: 45px;
+  height: 45px;
+  line-height: 45px;
+  text-align: center;
   background-color: @post-catalog-font-color;
   border: 1px solid @blog-border-color;
   color: @colorFont;
@@ -47,10 +48,12 @@
 .catalog-container {
   padding: 5px 10px;
   font-size: 16px;
+
   ul li {
-    border-bottom: 1px solid rgba(255,255,255,.1);
+    border-bottom: 1px solid rgba(255, 255, 255, .1);
   }
 }
+
 // 太别扭了了，去掉下划线样式
 //.catalog-container ul li a {
 //  text-decoration: underline;
@@ -86,6 +89,7 @@
   color: @blog-theme-color;
   text-align: left;
   font-size: 15px;
+
   a {
     color: @blog-theme-color;
   }
@@ -180,7 +184,7 @@
   /*设置引用标签*/
 
   blockquote {
-	border: none;
+    border: none;
     border-radius: 10px;
     color: @colorFont;
     margin: 20px 0;
@@ -266,13 +270,10 @@
   /*设置关键字*/
 
   code {
-    color: @colorFont;
-    line-height: 1;
     padding: 1px 4px;
     margin: 0 3px;
     border-radius: 3px !important;
-    border: 1px solid @post-table-border-color;
-    background-color: @post-table-thead-bg-color;
+    border: 1px dashed @post-cnblogs-code-font-color;
   }
 
   /*设置代码块*/
@@ -281,7 +282,7 @@
     background-color: @post-table-thead-bg-color;
     padding: 30px 0 10px 0;
     border: 1px solid @post-table-border-color;
-    border-radius: 10px;
+    border-radius: 5px;
     position: relative;
     overflow-x: auto;
     width: 100%;
@@ -289,9 +290,11 @@
     span.language {
       position: absolute;
       top: 0;
-      left: 0;
-      padding: 5px 6px 6px 6px;
-      border-radius: 10px;
+      right: 0;
+      height:28px;
+      line-height: 28px;
+      padding-right:5px;
+      border-radius: 5px;
     }
 
     table {
@@ -299,8 +302,9 @@
       position: relative;
 
       .line {
-        font-family: comic, Consolas, sans-serif !important;
-        line-height: 12px;
+        font-family: "Source Code Pro","Microsoft YaHei UI", sans-serif !important;
+        height:24px;
+        line-height: 24px;
 
         .comment,
         .quote {
@@ -402,29 +406,37 @@
       }
 
       tbody {
-        pointer-events: none;
+        //添加这个是为了仅点击$::after时复制剪贴板，但是会造成tbody下焦点失去的问题，无法通过自由复制，放弃该方法。采用通过js添加一个btn-copy
+        //pointer-events: none;
 
-        &::after {
+        //&::after,
+        .btn-copy {
           position: absolute;
-          top: -30px;
-          right: 0;
-          content: "copy";
-          padding: 5px 6px 6px 6px;
-          border-radius: 10px;
-          background-color: skyblue;
+          top: -29px;
+          height:26px;
+          line-height: 26px;
+          left:0;
+          padding: 0 5px 0 5px;
+          border-radius: 5px;
           cursor: pointer;
           pointer-events: all;
+        }
+        .unclick {
+          box-shadow: @blog-bg-color 1px 1px 2px 2px;
+        }
+        .click {
+          box-shadow: @blog-bg-color 1px 1px 0px 0px;
         }
 
         .before {
           opacity: 0;
           position: absolute;
-          top: -30px;
-          right: 50px;
-          padding: 5px 6px 6px 6px;
-          background-color: skyblue;
-          content: "success";
-          border-radius: 10px;
+          top: -28px;
+          height:26px;
+          line-height: 26px;
+          left:50px;
+          padding: 0 5px 0 5px;
+          border-radius: 5px;
           animation: copy 1.5s;
         }
 

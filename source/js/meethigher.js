@@ -1,17 +1,12 @@
-//这是为了防止锚点跳转后被顶部导航栏遮住
-//兼容效果并不好
-// window.onhashchange=function (){
-//     let top=window.scrollY;
-//     top-=50;
-//     window.scrollTo(0,top);
-// };
 $(function () {
+    //下面这行是预处理显示样式
+    $("figure.highlight tbody").append($("<span class='btn-copy unclick'>Copy</span>"));
     let $menu = $(".header-menu");
     let $headerNavbar = $(".header-navbar");
     let $arrowUp = $(".arrow.fa-arrow-up");
     let $arrowDown = $(".arrow.fa-arrow-down");
     let $mainContent = $(".main-content");
-    let $copy = $("figure.highlight tbody");
+    let $copy = $("figure.highlight .btn-copy");
     let $header = $(".header");
     let flag = false;
     let isClick = true;
@@ -78,30 +73,33 @@ $(function () {
         $arrowDown.fadeIn();
     });
     $copy.on("click", function () {
-        let $pre = $(this).find(".code pre");
-        let $line = $(this).find(".code .line");
+        let $pre = $(this).parent().find(".code pre");
+        let $line = $(this).parent().find(".code .line");
         let text = "";
         $line.each(function () {
             text = text + $(this).text() + "\n";
         });
         let $input = $("<textarea>");
-        let $copySuccess = $("<span>success</span>");
+        let $copySuccess = $("<span>Success</span>");
         $copySuccess.addClass("before");
+        $(this).removeClass("unclick").addClass("click");
         $input.val(text);
-        $(this).append($copySuccess);
+        $(this).parent().append($copySuccess);
         $pre.append($input);
         $input.select();
         document.execCommand("Copy");
         $input.remove();
         setTimeout(function () {
+            $copy.addClass("unclick").removeClass("click");
             $copySuccess.remove();
         }, 1500);
     });
     let getLanguage = function () {
         $("figure.highlight").each(function () {
-            let str = $(this).attr("class");
-            str = str.substr(10);
-            let $span = $("<span class='language'>" + str + "</span>");
+            // let str = $(this).attr("class");
+            // str = str.substr(10);
+            // let $span = $("<span class='language'>" + str + "</span>");
+            let $span = $("<span class='language'>Code</span>");
             $(this).append($span);
         });
     };

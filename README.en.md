@@ -1,43 +1,43 @@
-## Starry主题
+## hexo-theme-starry
 
-欢迎使用
+Welcome!
 
-语言：
+Language:
 
-1. [English](https://github.com/meethigher/hexo-theme-starry/blob/master/README.en.md)
-2. 中文
+1. English
+2. [中文](https://github.com/meethigher/hexo-theme-starry/blob/master/README.zn.md)
 
 ![Starry]( https://d33wubrfki0l68.cloudfront.net/a01d67aa4c9ed9597c21e06eaa91ca499a3f2d3c/fc9cc/themes/screenshots/starry.jpg )
 
-闲得没事写的，预览：[I'm Kit Chen](https://meethigher.top/)
+I finished it in my spare time，preview：[I'm Kit Chen](https://meethigher.top/)
 
-本主题采用的是less跟ejs开发的。 
+Starry is developed by `Less` and `Ejs`. 
 
-直接下载可能不能使用，需要安装less
+You can't use it directly, unless you have installed `Less`
 
 ```npm
 $ npm install hexo-renderer-less --save
 ```
 
- 安装searchdb插件
+ Install searchdb
 
 ```npm
 $ npm install hexo-generator-searchdb --save
 ```
 
-安装hexo-neat插件
+Install hexo-neat
 
 ```npm
 $ npm install hexo-neat --save
 ```
 
-安装hexo-lazyload-image
+Install hexo-lazyload-image
 
 ```npm
 $ npm install hexo-lazyload-image --save
 ```
 
-如果你想要置顶的时候，就这样设置
+If you want to top it, you set it like this
 
 ```markdown
 ---
@@ -48,11 +48,11 @@ top: 5
 ---
 ```
 
-> 举个例子，top:5 和 top:4 ,5的值较大，5会排在前面
+> For example, top:5 and top:4, the most valuable articles are ranked first
 >
-> 参考文章：https://blog.csdn.net/nineya_com/article/details/103394315
+> Quote：https://blog.csdn.net/nineya_com/article/details/103394315
 
-需要修改`node_modules\hexo-generator-index\lib\generator.js`
+Then, modify `node_modules\hexo-generator-index\lib\generator.js`
 
 ```js
 'use strict';
@@ -85,25 +85,24 @@ module.exports = function(locals){
 };
 ```
 
-如果想要关闭某一篇文章的评论功能
+If you want to close one post's comments
 
 ```markdown
 ---
 title: xxx
 date: xxx
 tags: xxx
-top: true
 comments: false
 ---
 ```
 
-生成about
+Generate about
 
 ```npm
 $ hexo new page about
 ```
 
-文章的格式
+Article format
 
 ```markdown
 ---
@@ -121,7 +120,8 @@ top: true
 
 ```
 
-这是我的_config.yml
+
+This is my _config.yml
 
 ```npm
 # Hexo Configuration
@@ -268,9 +268,7 @@ lazyload:
   isSPA: false
 ```
 
-尽情使用吧！
 
-我的邮箱：meethigher@qq.com/meethigher@gmail.com
+Enjoy using it!
 
-
-
+E-mail：meethigher@qq.com/meethigher@gmail.com
