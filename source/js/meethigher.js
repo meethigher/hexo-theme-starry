@@ -13,6 +13,7 @@ $(function () {
     let current = window.scrollY;
     let $donationBtn = $(".post-donation-btn");
     let $shareBtn = $(".post-share-btn");
+    let $imgs=$(".post-content img");
     let src = $(".post-btn img").attr("src");
     printDefaultLog();
 
@@ -37,7 +38,11 @@ $(function () {
         $input.remove();
         layer.alert('已复制分享链接，可以分享给别人啦');
     });
-
+    //图片点击跳转
+    $imgs.on("click",function (){
+       let src=$(this).attr("src");
+        window.open(src);
+    });
     function printDefaultLog() {
         console.log("%c@theme：Starry\n@author：Kit Chen\n@link：https://github.com/meethigher/hexo-theme-starry\n@createDate：2019-09-16\n@页面加载耗时：" + (performance.now() / 1000).toFixed(2) + "秒", "font-size:18px; font-weight:bold; color:#24a0f0;")
     }
