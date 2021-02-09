@@ -4,8 +4,8 @@
         <% page.title="标签云" %>
             <span class="tags-title">标签云&nbsp;-&nbsp;共<%= site.tags.length %>个</span>
             <ul class="tags-all clearFix">
-                <% for(let key in site.tags.data) { %>
-                    <li><a href="<%- url_for("/tags/") %><%= site.tags.data[key].name %>/"><%= site.tags.data[key].name %></a></li>
+                <% let tags=site.tags.sort("name").data;for(let key in tags) { %>
+                    <li><a href="<%- url_for("/tags/") %><%= tags[key].name %>/"><%= tags[key].name %></a></li>
                 <% } %>
             </ul>
         <% } else { %>
