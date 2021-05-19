@@ -3,7 +3,10 @@
         <% page.posts.each(function (post) { %>
             <article class="post">
                 <div class="post-title">
-                    <a href="<%- url_for(post.path) %>"> <% if(post.top) { %>[顶]<% } %><%= post.title %></a>
+                    <a href="<%- url_for(post.path) %>">
+                        <% if(post.top) { %>[顶]
+                        <% } %>
+                        <%= post.title %></a>
                 </div>
                 <div class="post-excerpt">
                     <%- post.excerpt %>
@@ -23,15 +26,15 @@
             </article>
         <% }) %>
         <%- partial("_partial/paginator") %>
-        <% if (theme.Footer.counter){ %>
-            <div class="busuanzi">
-                <span style="display:none" class="begin"><%= theme.Footer.begin %></span>
-                网站运行时间<span id="d"></span>天<span id="h"></span>时<span id="m"></span>分<span id="s"></span>秒<br><span
-                        id="busuanzi_container_site_pv">总访问量<span id="busuanzi_value_site_pv"></span>次</span><span
+        <div class="busuanzi">
+            <span style="display:none" class="begin"><%= theme.Footer.begin %></span>
+            网站运行时间<span id="d"></span>天<span id="h"></span>时<span id="m"></span>分<span id="s"></span>秒<br>
+            <% if (theme.Footer.counter){ %>
+                <span id="busuanzi_container_site_pv">总访问量<span id="busuanzi_value_site_pv"></span>次</span><span
                         class="post-meta-divider">|</span><span id="busuanzi_container_site_uv">访客数<span
                             id="busuanzi_value_site_uv"></span>人</span>
                 <script defer src="<%- url_for("js/busuanzi.js") %>"></script>
-            </div>
+        </div>
         <% } %>
     </div>
 </div>
