@@ -17,11 +17,11 @@
         </div>
         <%- partial("_partial/comment.ejs") %>
         <% if (theme.Footer.counter){ %>
-            <div class="busuanzi">
-                <span id="busuanzi_container_page_pv">阅读量<span id="busuanzi_value_page_pv"></span>次</span>
-                <script defer src="<%- url_for("js/busuanzi.js") %>"></script>
+            <div class="footer">
+                <span id="container_site_uv">访客数<span id="value_site_uv"></span>人</span>
             </div>
         <% } %>
     </article>
     <div class="outline" title="目录"><span class="fa fa-list-alt"></span></div>
+    <script>let url=window.location.href.replace(/http:\/\/|https:\/\//,"");function sendGet(url){let xhr=new XMLHttpRequest();xhr.onreadystatechange=function(){if(xhr.readyState==4&&xhr.status==200){let result=xhr.responseText;document.getElementById("value_site_uv").innerText=result;console.log(result)}};xhr.open("POST",url,true);xhr.send();}window.onload=function(){sendGet("<%= theme.Footer.server %>/?url="+url);}</script>
 </div>
