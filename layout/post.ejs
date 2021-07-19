@@ -23,5 +23,5 @@
         <% } %>
     </article>
     <div class="outline" title="目录"><span class="fa fa-list-alt"></span></div>
-    <script>let url=window.location.href.replace(/http:\/\/|https:\/\//,"");function sendGet(url){let xhr=new XMLHttpRequest();xhr.onreadystatechange=function(){if(xhr.readyState==4&&xhr.status==200){let result=xhr.responseText;document.getElementById("value_site_uv").innerText=result;console.log(result)}};xhr.open("POST",url,true);xhr.send();}window.onload=function(){sendGet("<%= theme.Footer.server %>/?url="+url);}</script>
+    <script>let requestUrl=window.location.href.replace(/http:\/\/|https:\/\//,"");function sendPost(url,requestUrl){let xhr=new XMLHttpRequest();xhr.onreadystatechange=function(){if(xhr.readyState==4&&xhr.status==200){let result=xhr.responseText;document.getElementById("value_site_uv").innerText=result}};xhr.open("POST",url,true);xhr.send(requestUrl)}window.onload=function(){sendPost("<%= theme.Footer.server %>",requestUrl)}</script>
 </div>
