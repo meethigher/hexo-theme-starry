@@ -13,7 +13,7 @@ $(function () {
     let current = window.scrollY;
     let $donationBtn = $(".post-donation-btn");
     let $shareBtn = $(".post-share-btn");
-    let $imgs=$(".post-content img");
+    let $imgs = $(".post-content img");
     let src = $(".post-btn img").attr("src");
     printDefaultLog();
 
@@ -39,10 +39,11 @@ $(function () {
         layer.alert('已复制分享链接，可以分享给别人啦');
     });
     //图片点击跳转
-    $imgs.on("click",function (){
-       let src=$(this).attr("src");
+    $imgs.on("click", function () {
+        let src = $(this).attr("src");
         window.open(src);
     });
+
     function printDefaultLog() {
         console.log("%c@theme：Starry\n@author：Kit Chen\n@link：https://github.com/meethigher/hexo-theme-starry\n@createDate：2019-09-16\n@页面加载耗时：" + (performance.now() / 1000).toFixed(2) + "秒", "font-size:18px; font-weight:bold; color:#24a0f0;")
     }
@@ -178,6 +179,19 @@ $(function () {
     $(".header-search").on("click", function () {
         $(".search").click();
     });
+    $(window).on("keydown", function (e) {
+        //ctrl+shift+f换起站内搜索
+        if (e.shiftKey && e.ctrlKey && e.keyCode == "70") {
+            e.preventDefault();
+            $(".search").click();
+        }
+        //阻止f12事件，提示一个弹框
+        if (e.keyCode == "123") {
+            //阻止默认事件
+            e.preventDefault();
+            layer.msg("有问题欢迎发送邮件到meethigher@qq.com");
+        }
+    });
     //=============================================
     let url = [];
     let title = [];
@@ -254,9 +268,9 @@ $(function () {
             layer.msg("没有你要的内容哦，亲❤~");
     }
 
-    //================================================
 
-    $(".search").on("click", function () {
+
+    $(".search").on("click", function (){
         layer.open({
             title: "站内搜索",
             type: 1,
