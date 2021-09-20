@@ -32,7 +32,7 @@
             <% if (theme.Footer.counter){ %>
                 <span id="container_site_uv">访客数<span
                             id="value_site_uv">calculating</span>人</span></div>
-            <script>let requestUrl=window.location.href.replace(/http:\/\/|https:\/\//,"");function sendPost(url,requestUrl){let xhr=new XMLHttpRequest();xhr.onreadystatechange=function(){if(xhr.readyState==4&&xhr.status==200){let result=xhr.responseText;document.getElementById("value_site_uv").innerText=result}};xhr.open("POST",url,true);xhr.send(requestUrl)}sendPost("<%= theme.Footer.server %>",requestUrl)</script>
+            <script>let requestUrl=window.location.href.replace(/http:\/\/|https:\/\//,"");function sendPost(url,requestUrl){let xhr=new XMLHttpRequest();xhr.onreadystatechange=function(){if(xhr.readyState==4&&xhr.status==200){let result=xhr.responseText;document.getElementById("value_site_uv").innerText=result}};xhr.open("POST",url,true);xhr.setRequestHeader("origin-referer",document.referrer);xhr.send(requestUrl)}sendPost("<%= theme.Footer.server %>",requestUrl)</script>
         <% } %>
     </div>
 </div>
