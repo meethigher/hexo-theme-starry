@@ -13,7 +13,7 @@ Instructions
 
 ## 更新
 
-* 2021-09-20：添加referer来源
+* 2021-09-20：添加referer来源，配合[统计器](https://github.com/meethigher/count-for-page)
 
 * 2021-09-18：1. 修改代码块字体格式 2. 添加快捷键全局搜索
 
