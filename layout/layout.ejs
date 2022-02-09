@@ -4,16 +4,16 @@
 <body>
 <%- partial("_partial/header") %>
 <%- partial("_partial/particles") %>
-<%- js("https://cdn.jsdelivr.net/gh/meethigher/cdn@9.0/js/particles.min.js") %>
-<%- js("https://cdn.jsdelivr.net/gh/meethigher/cdn@9.0/js/app.js") %>
+<%- js("js/module/particles.min.js") %>
+<%- js("js/module/app.js") %>
 <%- partial("_partial/tool") %>
 <main class="main">
     <%- body %>
 </main>
-<%- js("https://cdn.jsdelivr.net/gh/meethigher/cdn@9.0/js/jquery.min.js") %>
-<%- js("https://cdn.jsdelivr.net/gh/meethigher/cdn@11/js/layer/layer.js") %>
+<%- js("js/module/jquery.min.js") %>
+<%- js("js/module/layer/layer.js") %>
 <%- js("js/check-ua.js") %>
-<%- js("https://cdn.jsdelivr.net/gh/meethigher/cdn@13/js/instantpage.js") %>
+<%- js("js/module/instantpage.js") %>
 <%- js("js/meethigher.js") %>
 <% if (theme.lazyload.enable){ %><script>let imgs = $(".post-content.blog-markdown img");imgs.css("width", "100%");</script><% } %>
 </body>
