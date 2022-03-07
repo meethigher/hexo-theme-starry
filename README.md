@@ -14,6 +14,8 @@ Instructions
 
 ## 更新
 
+* 2022-03-07：升级gitalk版本到1.7.2
+
 * 2022-02-09：将jsdelivr托管的css与js替换为本地的css与js。如今服务器带宽提上来了，没必要使用cdn了。
 
 * 2021-09-20：添加referer来源，配合[统计器](https://github.com/meethigher/count-for-page)
