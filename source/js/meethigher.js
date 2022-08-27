@@ -133,7 +133,6 @@ $(function () {
 
     $(window).on("scroll", function () {
         let currentY = this.scrollY;
-        console.log(currentY)
         let direction = currentY > current;//大于0表示下滑，导航栏隐藏；小于0表示上滑，导航栏显示
         if (this.scrollY < 65) {
             $header.removeClass("out");

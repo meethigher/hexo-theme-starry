@@ -91,7 +91,7 @@ If you want to close one post's comments
 ---
 title: xxx
 date: xxx
-tags: xxx
+tags: [xxx,xxx]
 comments: false
 ---
 ```
@@ -108,6 +108,8 @@ Article format
 ---
 title: helloworld
 date: 2020-05-19 09:26:20
+comments: false
+mathjax: false
 tags: xxx
 top: true
 ---
@@ -123,7 +125,7 @@ top: true
 
 This is my _config.yml
 
-```npm
+```yaml
 # Hexo Configuration
 ## Docs: https://hexo.io/docs/configuration.html
 ## Source: https://github.com/hexojs/hexo/
@@ -266,6 +268,11 @@ lazyload:
   onlypost: false
   loadingImg: data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAANSURBVBhXYzh8+PB/AAffA0nNPuCLAAAAAElFTkSuQmCC
   isSPA: false
+# 支持数学公式
+mathjax: 
+  enable: true
+  # http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML
+  cdn: https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML
 ```
 
 

@@ -14,6 +14,8 @@ Instructions
 
 ## 更新
 
+* 2022-08-28：使用mathjax支持数学公式的渲染，参考[在Hexo中使用MathJax插入数学公式 | Mob's Blog](http://blog.mobing.net/content/hexo/hexo-mathjax.html)
+
 * 2022-08-28：无新增功能，仅去除冗余内容
 
 * 2022-03-07：升级gitalk版本到1.7.2

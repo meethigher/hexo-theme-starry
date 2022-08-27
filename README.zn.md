@@ -91,8 +91,7 @@ module.exports = function(locals){
 ---
 title: xxx
 date: xxx
-tags: xxx
-top: true
+tags: [xxx,xxx]
 comments: false
 ---
 ```
@@ -109,6 +108,8 @@ $ hexo new page about
 ---
 title: helloworld
 date: 2020-05-19 09:26:20
+comments: false
+mathjax: false
 tags: xxx
 top: true
 ---
