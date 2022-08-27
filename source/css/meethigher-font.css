@@ -6,17 +6,7 @@
     url("../fonts/fontawesome-webfont.woff") format("woff");
 }
 
-@font-face {
-    font-family: "xingkai";
-    src: url("../fonts/xingkai.svg") format("svg"),
-    url("../fonts/xingkai.eot") format("embedded-opentype"),
-    url("../fonts/xingkai.ttf") format("truetype"),
-    url("../fonts/xingkai.woff") format("woff");
-}
 
-.xk {
-    font-family: "xingkai",sans-serif;
-}
 
 .fa {
     font-family: "fontawesome",sans-serif;

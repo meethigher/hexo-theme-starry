@@ -24,7 +24,7 @@ Tool:
 Footer:
   # 统计工能是否开启
   counter: true
-  # 统计功能服务器, https://meethigher.top:9090/count/
-  server: https://meethigher.top:9090/count/
+  # 统计功能服务器，该功能依赖于https://github.com/meethigher/count-for-page
+  server: https://meethigher.top/count/
   #网站开始运行的时间，格式"YYYY/MM/DD HH:mm:ss"，不填写，默认时间为2020年4月1日
 Begin: "2019/09/15 19:57:09"
