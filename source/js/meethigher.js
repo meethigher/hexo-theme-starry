@@ -102,8 +102,13 @@ $(function () {
         let $pre = $(this).parent().find(".code pre");
         let $line = $(this).parent().find(".code .line");
         let text = "";
-        $line.each(function () {
-            text = text + $(this).text() + "\n";
+		
+        $line.each(function (i) {
+            if(i==0) {
+				text=$(this).text();
+			}else{
+				text = text + "\n" + $(this).text();
+			}
         });
         let $input = $("<textarea>");
         let $copySuccess = $("<span>Success</span>");
