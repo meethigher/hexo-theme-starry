@@ -15,26 +15,32 @@
 
 直接下载可能不能使用，需要安装less
 
-```npm
+```sh
 $ npm install hexo-renderer-less --save
 ```
 
  安装searchdb插件
 
-```npm
+```sh
 $ npm install hexo-generator-searchdb --save
 ```
 
 安装hexo-neat插件
 
-```npm
+```sh
 $ npm install hexo-neat --save
 ```
 
 安装hexo-lazyload-image
 
-```npm
+```sh
 $ npm install hexo-lazyload-image --save
+```
+
+安装sitemap插件
+
+```sh
+$ npm install hexo-generator-sitemap --save
 ```
 
 如果你想要置顶的时候，就这样设置
@@ -98,7 +104,7 @@ comments: false
 
 生成about
 
-```npm
+```sh
 $ hexo new page about
 ```
 
@@ -124,7 +130,7 @@ top: true
 
 这是我的_config.yml
 
-```npm
+```properties
 # Hexo Configuration
 ## Docs: https://hexo.io/docs/configuration.html
 ## Source: https://github.com/hexojs/hexo/
@@ -261,12 +267,21 @@ gitalk:
   adminUser: meethigher #指定可初始化评论账户
   distractionFreeMode: true #类似于Facebook的分散注意力模式
 
-# hexo-lazyload-image插件，为了适应该主题，部分内容经过修改了。
 lazyload:
   enable: true
   onlypost: false
   loadingImg: data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAANSURBVBhXYzh8+PB/AAffA0nNPuCLAAAAAElFTkSuQmCC
   isSPA: false
+# 支持数学公式
+mathjax: 
+  enable: true
+  # http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML
+  cdn: https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML
+# 站点地图
+sitemap:
+  path: 
+    - sitemap.xml
+  template: ./sitemap-mock.xml
 ```
 
 尽情使用吧！

@@ -37,6 +37,12 @@ Install hexo-lazyload-image
 $ npm install hexo-lazyload-image --save
 ```
 
+Install hexo-generator-sitemap
+
+```sh
+$ npm install hexo-generator-sitemap --save
+```
+
 If you want to top it, you set it like this
 
 ```markdown
@@ -262,7 +268,6 @@ gitalk:
   adminUser: meethigher #指定可初始化评论账户
   distractionFreeMode: true #类似于Facebook的分散注意力模式
 
-# hexo-lazyload-image插件，为了适应该主题，部分内容经过修改了。
 lazyload:
   enable: true
   onlypost: false
@@ -273,6 +278,11 @@ mathjax:
   enable: true
   # http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML
   cdn: https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML
+# 站点地图
+sitemap:
+  path: 
+    - sitemap.xml
+  template: ./sitemap-mock.xml
 ```
 
 
