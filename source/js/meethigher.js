@@ -1,3 +1,10 @@
+function changeHash(link) {
+    let id = link.replace("#", "");
+    document.getElementById(id).scrollIntoView({
+        behavior: 'smooth' //带动画效果,平滑的滚动
+    });
+}
+
 $(function () {
     //下面这行是预处理显示样式
     $("figure.highlight tbody").append($("<span class='btn-copy unclick'>Copy</span>"));
@@ -59,7 +66,7 @@ $(function () {
             // $("html,body").removeClass("none-scroll");
             $(".opacityBottom").remove();
             $mainContent.show();
-            window.scrollTo(window.scrollX,h);
+            window.scrollTo(window.scrollX, h);
         });
 
     }
@@ -102,13 +109,13 @@ $(function () {
         let $pre = $(this).parent().find(".code pre");
         let $line = $(this).parent().find(".code .line");
         let text = "";
-		
+
         $line.each(function (i) {
-            if(i==0) {
-				text=$(this).text();
-			}else{
-				text = text + "\n" + $(this).text();
-			}
+            if (i == 0) {
+                text = $(this).text();
+            } else {
+                text = text + "\n" + $(this).text();
+            }
         });
         let $input = $("<textarea>");
         let $copySuccess = $("<span>Success</span>");
@@ -184,7 +191,11 @@ $(function () {
         }
         let content = $(this).attr("title");
         let $li = $("<li></li>");
-        let $a = $("<a href='" + $(this).attr("href") + "'>" + content + "</a>");
+        //let $a = $("<a href='" + $(this).attr("href") + "'>" + content + "</a>");
+        // "<a onclick='changeHash('" + $(this).attr("href") + "')'>" + content + "</a>";
+        let href = $(this).attr("href");
+        let aLink = "<a onclick='changeHash(\"" + href + "\")'>" + content + "</a>";
+        let $a = $(aLink);
         $li.append($a);
         $li.css("margin-left", spaceNum * 10 + "px");
         $catalog.append($li);
@@ -294,8 +305,7 @@ $(function () {
     }
 
 
-
-    $(".search").on("click", function (){
+    $(".search").on("click", function () {
         layer.open({
             title: "站内搜索",
             type: 1,
