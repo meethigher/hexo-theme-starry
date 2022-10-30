@@ -14,6 +14,8 @@ Instructions
 
 ## 更新
 
+* 2022-10-30：图片点击全屏展示，支持pc端与移动端图片的自由缩放（基于[fengyuanchen/viewerjs: JavaScript image viewer.](https://github.com/fengyuanchen/viewerjs)）
+
 * 2022-10-27：代码块右侧顺序栏禁用选中
 
 * 2022-10-14：锚点跳转不改变url
@@ -25,6 +27,8 @@ Instructions
 * 2022-08-28：使用mathjax支持数学公式的渲染，参考[在Hexo中使用MathJax插入数学公式 | Mob's Blog](http://blog.mobing.net/content/hexo/hexo-mathjax.html)
 
 * 2022-08-28：无新增功能，仅去除冗余内容
+
+* ~~2022-05-21：图片点击全屏展示~~
 
 * 2022-03-07：升级gitalk版本到1.7.2
 

@@ -46,30 +46,24 @@ $(function () {
         layer.alert('已复制分享链接，可以分享给别人啦');
     });
     //[jquery实现点击图片全屏查看功能 - 简书](https://www.jianshu.com/p/ee2a9dad2caa)
-    $imgs.on("click", function () {
-        let src = $(this).attr("src");
-        let opacityBottom = '<div class="opacityBottom" style = "display:none;"><img class="bigImg" src="' + src + '"></div>';
-        $(document.body).append(opacityBottom);
-        //变大函数
-        toBigImg(window.scrollY);
+    $imgs.viewer({
+        button:true,
+        title:true,
+        navbar:false,
+        toolbar: {
+            zoomIn: false,
+            zoomOut: false,
+            oneToOne: false,
+            reset: true,
+            prev: false,
+            play: false,
+            next: false,
+            rotateLeft: true,
+            rotateRight: true,
+            flipHorizontal: true,
+            flipVertical: true,
+        },
     });
-
-    function toBigImg(h) {
-        let opacityBottom = $(".opacityBottom");
-        opacityBottom.addClass("opacityBottom");//添加遮罩层
-        opacityBottom.show();
-        $mainContent.hide();
-        // $("html,body").addClass("none-scroll");//下层不可滑动
-        $(".bigImg").addClass("bigImg");//添加图片样式
-
-        opacityBottom.click(function () {//点击关闭
-            // $("html,body").removeClass("none-scroll");
-            $(".opacityBottom").remove();
-            $mainContent.show();
-            window.scrollTo(window.scrollX, h);
-        });
-
-    }
 
     function printDefaultLog() {
         console.log("%c@theme：Starry\n@author：Kit Chen\n@link：https://github.com/meethigher/hexo-theme-starry\n@createDate：2019-09-16\n@页面加载耗时：" + (performance.now() / 1000).toFixed(2) + "秒", "font-size:18px; font-weight:bold; color:#24a0f0;")
