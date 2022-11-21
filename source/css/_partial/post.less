@@ -8,12 +8,66 @@
   overflow: hidden;
 }
 
+.pc-outline {
+  font-size: 17px;
+  padding: 0 10px;
+  display: none;
+  position: fixed;
+  top: 80px;
+  left: 20px;
+  width: 250px;
+  //background-color: orange;
+  height: 0;
+  overflow: hidden;
+  overflow-y: scroll;
+  border-radius: 5px;
+  box-shadow: 0 2px 19px 4px rgb(255 255 255 / 25%);
+  transition: all .5s;
+  -moz-user-select: none; /* Firefox私有属性 */
+  -webkit-user-select: none; /* WebKit内核私有属性 */
+  -ms-user-select: none; /* IE私有属性(IE10及以后) */
+  -khtml-user-select: none; /* Khtml内核私有属性 */
+  -o-user-select: none; /* Opera私有属性 */
+  user-select: none; /* CSS3属性 */
+
+
+  li {
+    list-style: none;
+    cursor: pointer;
+
+    a:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.pc-outline-link-active {
+  color: @blog-theme-color;
+}
+
+.pc-outline-active {
+  background-color: rgba(255, 255, 255, .2);
+}
+
+
+.pc-outline-out {
+  border: 1px solid @blog-border-color;
+  height: 80%;
+}
+
+@media screen and (min-width: 1500px) {
+  .pc-outline {
+    display: block;
+  }
+}
+
 .outline {
   width: 45px;
   height: 45px;
   line-height: 45px;
   text-align: center;
-  background-color: @post-catalog-font-color;
+  //background-color: @post-catalog-font-color;
+  background-color: @colorDiy;
   border: 1px solid @blog-border-color;
   color: @colorFont;
   cursor: pointer;
@@ -51,7 +105,7 @@
 
   ul li {
     border-bottom: 1px solid rgba(255, 255, 255, .1);
-    cursor:pointer;
+    cursor: pointer;
   }
 }
 
@@ -64,6 +118,15 @@
 .post-title {
   .title {
     font-size: 26px;
+    text-align: center;
+    letter-spacing: 4px;
+  }
+
+  .subtitle {
+    display: block;
+    font-size: 12px;
+    text-align: center;
+    margin: 8px 0 10px;
   }
 }
 
@@ -89,7 +152,7 @@
 .post-detail {
   color: @blog-theme-color;
   text-align: left;
-  font-size: 15px;
+  font-size: 12px;
 
   a {
     color: @blog-theme-color;
@@ -113,7 +176,12 @@
   /*设置h标签*/
   .postSize(@fontSize) {
     font-size: @fontSize !important;
-    margin: 10px 0;
+    font-style: italic;
+    //锚点定位被header盖住问题
+    padding-top: 50px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid @blog-border-color;
+    transition: padding-left .5s;
   }
 
   h6 {
@@ -134,10 +202,16 @@
 
   h2 {
     .postSize(22px);
+
   }
 
   h1 {
     .postSize(23px);
+  }
+
+
+  h1:hover, h2:hover, h3:hover, h4:hover, h5:hover, h6:hover {
+    padding-left: 60px;
   }
 
   /*设置无序有序标签*/
@@ -194,7 +268,12 @@
     background-color: slategray;
     line-height: inherit;
     border-left: 8px solid @post-blockquote-border-color;
-    font-size: 15px;
+    font-size: 12px;
+
+    p {
+      //text-indent: unset;
+      margin: unset;
+    }
   }
 
   /*设置加粗倾斜*/
@@ -218,7 +297,7 @@
   }
   @media screen and (max-width: 960px) {
     img {
-      width: 100%;
+      max-width: 100%;
       display: block;
       margin: 15px auto 30px auto;
       border-radius: 10px;
@@ -234,6 +313,7 @@
     border: 1px solid @post-table-border-color;
     width: 100%;
     margin-bottom: 24px;
+    margin-top: 24px;
     border-radius: 3px;
 
     th {
@@ -264,8 +344,9 @@
   /*设置段落格式*/
 
   p {
-    margin: 10px auto;
-    text-indent: 0;
+    margin: 25px auto;
+    //text-indent: 34px;//段落缩进，2个字符
+    letter-spacing: 1px; //水平间距，默认是0
   }
 
   /*设置关键字*/
@@ -289,7 +370,7 @@
     width: 100%;
 
     span.language {
-      display:none;
+      display: none;
       //position: absolute;
       //top: 0;
       //right: 0;
@@ -307,6 +388,7 @@
         font-family: Consolas, monospace, serif !important;
         height: 24px;
         line-height: 24px;
+        font-size: 12px;
 
         .comment,
         .quote {
@@ -380,12 +462,12 @@
 
       .gutter {
         width: 30px;
-        -moz-user-select:none; /* Firefox私有属性 */
-        -webkit-user-select:none; /* WebKit内核私有属性 */
-        -ms-user-select:none; /* IE私有属性(IE10及以后) */
-        -khtml-user-select:none; /* Khtml内核私有属性 */
-        -o-user-select:none; /* Opera私有属性 */
-        user-select:none; /* CSS3属性 */
+        -moz-user-select: none; /* Firefox私有属性 */
+        -webkit-user-select: none; /* WebKit内核私有属性 */
+        -ms-user-select: none; /* IE私有属性(IE10及以后) */
+        -khtml-user-select: none; /* Khtml内核私有属性 */
+        -o-user-select: none; /* Opera私有属性 */
+        user-select: none; /* CSS3属性 */
 
         pre {
           padding-left: 8px;

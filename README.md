@@ -14,6 +14,11 @@ Instructions
 
 ## 更新
 
+* 2022-11-21：博客内容展示页调整
+  1. 调整水平间距、行间距
+  2. 调整代码块字体，代码块复制文字替换成图标
+  3. 标题栏添加动态效果(以往的标题与常规字体不易区分)
+
 * 2022-10-30：图片点击全屏展示，支持pc端与移动端图片的自由缩放（基于[fengyuanchen/viewerjs: JavaScript image viewer.](https://github.com/fengyuanchen/viewerjs)）
 
 * 2022-10-27：代码块右侧顺序栏禁用选中

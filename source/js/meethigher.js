@@ -7,7 +7,11 @@ function changeHash(link) {
 
 $(function () {
     //下面这行是预处理显示样式
-    $("figure.highlight tbody").append($("<span class='btn-copy unclick'>Copy</span>"));
+    $("figure.highlight tbody").append($("<span class='fa fa-copy btn-copy unclick'></span>"));
+    let $pcOutline = $(".pc-outline");
+    let $outline = $(".outline");
+    let $catalog = $("<ul></ul>");
+    let $headerlink = $(".headerlink");
     let $menu = $(".header-menu");
     let $headerNavbar = $(".header-navbar");
     let $arrowUp = $(".arrow.fa-arrow-up");
@@ -47,9 +51,9 @@ $(function () {
     });
     //[jquery实现点击图片全屏查看功能 - 简书](https://www.jianshu.com/p/ee2a9dad2caa)
     $imgs.viewer({
-        button:true,
-        title:true,
-        navbar:false,
+        button: true,
+        title: true,
+        navbar: false,
         toolbar: {
             zoomIn: false,
             zoomOut: false,
@@ -112,7 +116,7 @@ $(function () {
             }
         });
         let $input = $("<textarea>");
-        let $copySuccess = $("<span>Success</span>");
+        let $copySuccess = $("<span class='fa fa-check'></span>");
         $copySuccess.addClass("before");
         $(this).removeClass("unclick").addClass("click");
         $input.val(text);
@@ -126,41 +130,17 @@ $(function () {
             $copySuccess.remove();
         }, 1500);
     });
-    let getLanguage = function () {
-        $("figure.highlight").each(function () {
-            // let str = $(this).attr("class");
-            // str = str.substr(10);
-            // let $span = $("<span class='language'>" + str + "</span>");
-            let $span = $("<span class='language'>Code</span>");
-            $(this).append($span);
-        });
-    };
-    getLanguage();
-
-    $(window).on("scroll", function () {
-        let currentY = this.scrollY;
-        let direction = currentY > current;//大于0表示下滑，导航栏隐藏；小于0表示上滑，导航栏显示
-        if (this.scrollY < 65) {
-            $header.removeClass("out");
-        } else {
-            direction > 0 ? $header.removeClass("in").addClass("out") : $header.removeClass("out").addClass("in");
-        }
-        current = currentY;
-    });
-    $(".up").on("click", function () {
-        window.scrollTo(0, 0);
-    });
-    $(".down").on("click", function () {
-        let t_height = document.body.scrollHeight;
-        let w_height = window.innerHeight;
-        window.scrollTo(0, t_height - w_height);
-    });
-});
-//生成文章的目录
-$(function () {
-    let $outline = $(".outline");
-    let $catalog = $("<ul></ul>");
-    let $headerlink = $(".headerlink");
+    // let getLanguage = function () {
+    //     $("figure.highlight").each(function () {
+    //         // let str = $(this).attr("class");
+    //         // str = str.substr(10);
+    //         // let $span = $("<span class='language'>" + str + "</span>");
+    //         let $span = $("<span class='language'>Code</span>");
+    //         $(this).append($span);
+    //     });
+    // };
+    // getLanguage();
+    //文章目录
     $headerlink.each(function () {
         let spaceNum = "";
         switch ($(this).parent()[0].tagName) {
@@ -188,10 +168,10 @@ $(function () {
         //let $a = $("<a href='" + $(this).attr("href") + "'>" + content + "</a>");
         // "<a onclick='changeHash('" + $(this).attr("href") + "')'>" + content + "</a>";
         let href = $(this).attr("href");
-        let aLink = "<a onclick='changeHash(\"" + href + "\")'>" + content + "</a>";
+        let aLink = "<a data-tab='" + href + "' onclick='changeHash(\"" + href + "\")'>" + content + "</a>";
         let $a = $(aLink);
         $li.append($a);
-        $li.css("margin-left", spaceNum * 10 + "px");
+        $li.css("padding-left", spaceNum * 10 + "px");
         $catalog.append($li);
     });
     $outline.on("click", function () {
@@ -202,6 +182,51 @@ $(function () {
             area: ['320px', '240px'], //宽高
             content: "<div class='catalog-container'><ul>" + $catalog.html() + "</ul></div>"
         });
+    });
+    $pcOutline.append("<ul>" + $catalog.html() + "</ul>");
+
+    //滚动事件
+    $(window).on("scroll", function () {
+        let currentY = this.scrollY;
+        let direction = currentY > current;//大于0表示下滑，导航栏隐藏；小于0表示上滑，导航栏显示
+        let pcOutlineState = parseInt(window.localStorage.getItem("pc-outline") || 0);
+        if (currentY < 65) {
+            $header.removeClass("out");
+            if (pcOutlineState === 0) {
+                $pcOutline.removeClass("pc-outline-out");
+            }
+        } else {
+            direction > 0 ? $header.removeClass("in").addClass("out") : $header.removeClass("out").addClass("in");
+            if (pcOutlineState === 0) {
+                $pcOutline.addClass("pc-outline-out");
+            }
+        }
+        current = currentY;
+        //pc端目录高亮,[用JS原生实现锚点定位功能/动态目录高亮_清秋挽风的博客-CSDN博客_js 目录锚点](https://blog.csdn.net/qq_43684588/article/details/125048254)
+        let windowWidth = document.documentElement.clientWidth || document.body.clientWidth;
+        //1500px与css的@media对应
+        if (windowWidth > 1500 && pcOutlineState === 0) {
+            let $pcOutlineLi = $(".pc-outline li");
+            for (let i = $pcOutlineLi.length - 1; i >= 0; i--) {
+                let $children = $($pcOutlineLi[i]).children("a");
+                let $targetElement = $($children.attr("data-tab"));
+                if (parseInt(currentY) >= (Math.ceil($targetElement.offset().top) - 20)) {
+                    $(".pc-outline-link-active").removeClass("pc-outline-link-active");
+                    $(".pc-outline-active").removeClass("pc-outline-active");
+                    $children.addClass("pc-outline-link-active");
+                    $($pcOutlineLi[i]).addClass("pc-outline-active");
+                    break;
+                }
+            }
+        }
+    });
+    $(".up").on("click", function () {
+        window.scrollTo(0, 0);
+    });
+    $(".down").on("click", function () {
+        let t_height = document.body.scrollHeight;
+        let w_height = window.innerHeight;
+        window.scrollTo(0, t_height - w_height);
     });
 });
 //搜索功能
@@ -214,6 +239,12 @@ $(function () {
         if (e.shiftKey && e.ctrlKey && e.keyCode == "70") {
             e.preventDefault();
             $(".search").click();
+        }
+        if (e.shiftKey && e.ctrlKey && e.keyCode == "49") {
+            e.preventDefault();
+            let state = window.localStorage.getItem("pc-outline") || 0;
+            window.localStorage.setItem("pc-outline", state == "0" ? 1 : 0);
+            state == "0" ? $(".pc-outline-out").removeClass("pc-outline-out") : $(".pc-outline").addClass("pc-outline-out");
         }
         // //阻止f12事件，提示一个弹框
         // if (e.keyCode == "123") {

@@ -3,6 +3,7 @@
     <article class="post">
         <div class="post-title">
             <h2 class="title"><%= page.title %></h2>
+            <span class="subtitle"><%- date(page.date, "YYYY-MM-DD HH:mm:ss") %></span>
         </div>
         <div class="post-content blog-markdown">
             <%- page.more %>
@@ -24,5 +25,6 @@
             <script>let requestUrl=window.location.href.replace(/http:\/\/|https:\/\//,"");function sendPost(url,requestUrl){let xhr=new XMLHttpRequest();xhr.onreadystatechange=function(){if(xhr.readyState==4&&xhr.status==200){let result=xhr.responseText;document.getElementById("value_site_uv").innerText=result}};xhr.open("POST",url,true);xhr.setRequestHeader("origin-referer",document.referrer);xhr.send(requestUrl)}sendPost("<%= theme.Footer.server %>",requestUrl)</script>
         <% } %>
     </article>
-    <div class="outline" title="目录"><span class="fa fa-list-alt"></span></div>
+    <div class="outline" title="目录"><span class="fa fa-list-ul"></span></div>
 </div>
+<div class="pc-outline"><div>shift+ctrl+1可控制目录显示</div></div>
