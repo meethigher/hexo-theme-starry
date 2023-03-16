@@ -4,6 +4,7 @@
         <div class="post-title">
             <h2 class="title"><%= page.title %></h2>
             <span class="subtitle"><%- date(page.date, "YYYY-MM-DD HH:mm:ss") %></span>
+			<span class="subtitle">转载随意，文章会持续修订，请注明来源地址：<%=config.url%></span>
         </div>
         <div class="post-content blog-markdown">
             <%- page.more %>

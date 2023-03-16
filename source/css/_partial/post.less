@@ -177,9 +177,10 @@
   .postSize(@fontSize) {
     font-size: @fontSize !important;
     font-style: italic;
-    //锚点定位被header盖住问题
-    padding-top: 50px;
-    padding-bottom: 10px;
+    text-align: center;
+    //锚点定位被header盖住问题padding-top: 50px;
+    padding-top: 16px;
+    padding-bottom: 16px;
     border-bottom: 1px solid @blog-border-color;
     transition: padding-left .5s;
   }
@@ -217,7 +218,8 @@
   /*设置无序有序标签*/
 
   ul, ol {
-    margin-left: 30px;
+    margin: 12px auto;
+    padding-left: 30px;
 
     li {
       margin: 3px 0;
@@ -260,15 +262,14 @@
 
   blockquote {
     border: none;
-    border-radius: 10px;
-    color: @colorFont;
+    color: @post-blockquote-border-color;
     margin: 20px 0;
     padding: 10px;
     min-height: 20px;
-    background-color: slategray;
     line-height: inherit;
     border-left: 8px solid @post-blockquote-border-color;
-    font-size: 12px;
+    border-right: 8px solid @post-blockquote-border-color;
+    background: rgba(36, 134, 115, 0.10);
 
     p {
       //text-indent: unset;
@@ -291,7 +292,7 @@
     img {
       max-width: 920px;
       display: block;
-      margin: 15px auto 30px auto;
+      margin: 12px auto;
       border-radius: 10px;
     }
   }
@@ -299,7 +300,7 @@
     img {
       max-width: 100%;
       display: block;
-      margin: 15px auto 30px auto;
+      margin: 12px auto;
       border-radius: 10px;
     }
   }
@@ -312,8 +313,8 @@
     empty-cells: show;
     border: 1px solid @post-table-border-color;
     width: 100%;
-    margin-bottom: 24px;
-    margin-top: 24px;
+    margin-bottom: 12px;
+    margin-top: 12px;
     border-radius: 3px;
 
     th {
@@ -344,7 +345,7 @@
   /*设置段落格式*/
 
   p {
-    margin: 25px auto;
+    margin: 12px auto;
     //text-indent: 34px;//段落缩进，2个字符
     letter-spacing: 1px; //水平间距，默认是0
   }
@@ -355,19 +356,25 @@
     padding: 1px 4px;
     margin: 0 3px;
     border-radius: 3px !important;
-    border: 1px dashed @post-cnblogs-code-font-color;
+    //border: 1px dashed @post-cnblogs-code-font-color;
+    background-color: #f3f3f3;
+    color: #00769A;
+    font-weight: bolder;
   }
 
   /*设置代码块*/
 
   figure.highlight {
     background-color: @post-table-thead-bg-color;
+    //background-color: black;
     padding: 30px 0 10px 0;
-    border: 1px solid @post-table-border-color;
+    //border: 1px solid @post-table-border-color;
     border-radius: 5px;
     position: relative;
     overflow-x: auto;
     width: 100%;
+    margin-bottom: 12px;
+    margin-top: 12px;
 
     span.language {
       display: none;
@@ -388,7 +395,7 @@
         font-family: Consolas, monospace, serif !important;
         height: 24px;
         line-height: 24px;
-        font-size: 12px;
+        font-size: 14px;
 
         .comment,
         .quote {

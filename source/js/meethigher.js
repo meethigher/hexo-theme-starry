@@ -1,7 +1,7 @@
 function changeHash(link) {
     let id = link.replace("#", "");
     document.getElementById(id).scrollIntoView({
-        behavior: 'smooth' //带动画效果,平滑的滚动
+        behavior: "smooth" //带动画效果,平滑的滚动
     });
 }
 
@@ -35,8 +35,8 @@ $(function () {
             title: false,
             closeBtn: 0,
             shadeClose: true,
-            skin: 'yourclass',
-            content: '<img src=' + src + ' width="320px" height="500px">'
+            skin: "yourclass",
+            content: "<img src=" + src + " width=\"320px\" height=\"500px\">"
         });
     });
     $shareBtn.on("click", function () {
@@ -47,7 +47,7 @@ $(function () {
         $input.select();
         document.execCommand("Copy");
         $input.remove();
-        layer.alert('已复制分享链接，可以分享给别人啦');
+        layer.alert("已复制分享链接，可以分享给别人啦");
     });
     //[jquery实现点击图片全屏查看功能 - 简书](https://www.jianshu.com/p/ee2a9dad2caa)
     $imgs.viewer({
@@ -70,7 +70,7 @@ $(function () {
     });
 
     function printDefaultLog() {
-        console.log("%c@theme：Starry\n@author：Kit Chen\n@link：https://github.com/meethigher/hexo-theme-starry\n@createDate：2019-09-16\n@页面加载耗时：" + (performance.now() / 1000).toFixed(2) + "秒", "font-size:18px; font-weight:bold; color:#24a0f0;")
+        console.log("%c@theme：Starry\n@author：Kit Chen\n@link：https://github.com/meethigher/hexo-theme-starry\n@createDate：2019-09-16\n@页面加载耗时：" + (performance.now() / 1000).toFixed(2) + "秒", "font-size:18px; font-weight:bold; color:#24a0f0;");
     }
 
     $menu.on("click", function () {
@@ -178,8 +178,8 @@ $(function () {
         layer.open({
             title: "大纲目录",
             type: 1,
-            skin: 'layui-layer-rim', //加上边框
-            area: ['320px', '240px'], //宽高
+            skin: "layui-layer-rim", //加上边框
+            area: ["320px", "240px"], //宽高
             content: "<div class='catalog-container'><ul>" + $catalog.html() + "</ul></div>"
         });
     });
@@ -207,15 +207,23 @@ $(function () {
         //1500px与css的@media对应
         if (windowWidth > 1500 && pcOutlineState === 0) {
             let $pcOutlineLi = $(".pc-outline li");
-            for (let i = $pcOutlineLi.length - 1; i >= 0; i--) {
-                let $children = $($pcOutlineLi[i]).children("a");
-                let $targetElement = $($children.attr("data-tab"));
-                if (parseInt(currentY) >= (Math.ceil($targetElement.offset().top) - 20)) {
-                    $(".pc-outline-link-active").removeClass("pc-outline-link-active");
-                    $(".pc-outline-active").removeClass("pc-outline-active");
-                    $children.addClass("pc-outline-link-active");
-                    $($pcOutlineLi[i]).addClass("pc-outline-active");
-                    break;
+            let length = $pcOutlineLi.length;
+            if (length !== 0) {
+                for (let i = length - 1; i >= 0; i--) {
+                    let $children = $($pcOutlineLi[i]).children("a");
+                    let $targetElement = $($children.attr("data-tab"));
+                    if (parseInt(currentY) >= (Math.ceil($targetElement.offset().top) - 20)) {
+                        $(".pc-outline-link-active").removeClass("pc-outline-link-active");
+                        $(".pc-outline-active").removeClass("pc-outline-active");
+                        $children.addClass("pc-outline-link-active");
+                        $($pcOutlineLi[i]).addClass("pc-outline-active");
+                        break;
+                    }
+                }
+            } else {
+                $header.removeClass("out");
+                if (pcOutlineState === 0) {
+                    $pcOutline.removeClass("pc-outline-out");
                 }
             }
         }
@@ -263,7 +271,7 @@ $(function () {
     function ajaxSearch() {
         if (url.length == 0 || title.length == 0 || content.length == 0) {
             // console.log("数据初次加载");
-            loadingIndex = layer.load(1, {shade: [0.1, '#fff']});
+            loadingIndex = layer.load(1, {shade: [0.1, "#fff"]});
             ajaxing = true;
             $.ajax({
                 url: "/blog/meethigher.json",//此处需要修改成你的路径
@@ -299,7 +307,7 @@ $(function () {
 
     function searchResult($result, value) {
         let count = 0;
-        let index = layer.load(1, {shade: [0.1, '#fff']});
+        let index = layer.load(1, {shade: [0.1, "#fff"]});
         let timeId = setInterval(function () {
             count++;
             if (!ajaxing) {
@@ -334,8 +342,8 @@ $(function () {
         layer.open({
             title: "站内搜索",
             type: 1,
-            skin: 'layui-layer-rim', //加上边框
-            area: ['320px', '240px'], //宽高
+            skin: "layui-layer-rim", //加上边框
+            area: ["320px", "240px"], //宽高
             content: "<div class=\"search-container\">\n" +
                 "    <input type=\"search\" placeholder=\"搜索\" id=\"input\" autocomplete=\"off\">\n" +
                 "    <div class=\"btn-search\"><span class=\"fa fa-search\"></span></div>\n" +
@@ -365,7 +373,7 @@ $(function () {
 });
 //网站运行时间
 $(function () {
-    let day = 0, hour = 0, minute = 0, second = 0;
+    let year = 0, day = 0, hour = 0, minute = 0, second = 0;
 
     function timer(timestamp) {
         if (timestamp > 0) {
@@ -373,11 +381,21 @@ $(function () {
             hour = Math.floor(timestamp / (60 * 60)) - (day * 24);
             minute = Math.floor(timestamp / 60) - (day * 24 * 60) - (hour * 60);
             second = Math.floor(timestamp) - (day * 24 * 60 * 60) - (hour * 60 * 60) - (minute * 60);
+            let number = 365;
+            if (day >= number) {
+                year = Math.floor(day / number);
+                day -= year * 365;
+            }
         }
-        if (day <= 9) day = '0' + day;
-        if (hour <= 9) hour = '0' + hour;
-        if (minute <= 9) minute = '0' + minute;
-        if (second <= 9) second = '0' + second;
+        if (year === 0) {
+            $(".y").hide();
+        }
+        if (year <= 9) year = "0" + year;
+        if (day <= 9) day = "0" + day;
+        if (hour <= 9) hour = "0" + hour;
+        if (minute <= 9) minute = "0" + minute;
+        if (second <= 9) second = "0" + second;
+        $("#y").text(year);
         $("#d").text(day);
         $("#h").text(hour);
         $("#m").text(minute);
