@@ -1,7 +1,8 @@
 function changeHash(link) {
     let id = link.replace("#", "");
     document.getElementById(id).scrollIntoView({
-        behavior: "smooth" //带动画效果,平滑的滚动
+        //behavior: "smooth" //带动画效果,平滑的滚动
+        behavior: "auto"//不带动画效果
     });
 }
 
@@ -26,6 +27,8 @@ $(function () {
     let $shareBtn = $(".post-share-btn");
     let $imgs = $(".post-content img");
     let src = $(".post-btn img").attr("src");
+    let pcOutlineHeight = (window.innerHeight * 0.8) - 20;//与样式中配的80%匹配, -20是为了容错
+
     printDefaultLog();
 
     $mainContent.animate({"opacity": "1"});
@@ -187,25 +190,25 @@ $(function () {
 
     //滚动事件
     $(window).on("scroll", function () {
-        let currentY = this.scrollY;
-        let direction = currentY > current;//大于0表示下滑，导航栏隐藏；小于0表示上滑，导航栏显示
         let pcOutlineState = parseInt(window.localStorage.getItem("pc-outline") || 0);
-        if (currentY < 65) {
-            $header.removeClass("out");
-            if (pcOutlineState === 0) {
-                $pcOutline.removeClass("pc-outline-out");
-            }
-        } else {
-            direction > 0 ? $header.removeClass("in").addClass("out") : $header.removeClass("out").addClass("in");
-            if (pcOutlineState === 0) {
-                $pcOutline.addClass("pc-outline-out");
-            }
-        }
-        current = currentY;
         //pc端目录高亮,[用JS原生实现锚点定位功能/动态目录高亮_清秋挽风的博客-CSDN博客_js 目录锚点](https://blog.csdn.net/qq_43684588/article/details/125048254)
         let windowWidth = document.documentElement.clientWidth || document.body.clientWidth;
         //1500px与css的@media对应
         if (windowWidth > 1500 && pcOutlineState === 0) {
+            let currentY = this.scrollY;
+            let direction = currentY > current;//大于0表示下滑，导航栏隐藏；小于0表示上滑，导航栏显示
+            if (currentY < 65) {
+                $header.removeClass("out");
+                if (pcOutlineState === 0) {
+                    $pcOutline.removeClass("pc-outline-out");
+                }
+            } else {
+                direction > 0 ? $header.removeClass("in").addClass("out") : $header.removeClass("out").addClass("in");
+                if (pcOutlineState === 0) {
+                    $pcOutline.addClass("pc-outline-out");
+                }
+            }
+            current = currentY;
             let $pcOutlineLi = $(".pc-outline li");
             let length = $pcOutlineLi.length;
             if (length !== 0) {
@@ -217,6 +220,17 @@ $(function () {
                         $(".pc-outline-active").removeClass("pc-outline-active");
                         $children.addClass("pc-outline-link-active");
                         $($pcOutlineLi[i]).addClass("pc-outline-active");
+
+                        //如果激活的标签不在视野内，则像下滚动
+                        let top = $(".pc-outline-link-active").position().top;
+                        //向上滑的距离超过视口长度
+                        if (top < 0) {
+                            $pcOutline[0].scrollTo(0, $pcOutline.scrollTop() - 70);
+                        }
+                        //向下滑的距离超过视口长度
+                        if (top > pcOutlineHeight) {
+                            $pcOutline[0].scrollTo(0, $pcOutline.scrollTop() + 50);
+                        }
                         break;
                     }
                 }
