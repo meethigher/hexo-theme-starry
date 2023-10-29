@@ -3,8 +3,8 @@
     <article class="post">
         <div class="post-title">
             <h2 class="title"><%= page.title %></h2>
-            <span class="subtitle"><%- date(page.date, "YYYY-MM-DD HH:mm:ss") %></span>
-			<span class="subtitle">转载随意，文章会持续修订，请注明来源地址：<%=config.url%></span>
+            <span class="subtitle">发布于<%- date(page.date, "YYYY-MM-DD HH:mm:ss") %>，更新于<%- date(page.updated, "YYYY-MM-DD HH:mm:ss") %><% if (page.tags && page.tags.length){ %>，标签：<span><% for(let i = 0;i < page.tags.length;i++){%><a href="<%- url_for(page.tags.data[i].path) %>"><%= page.tags.data[i].name %></a>&nbsp;<% } %></span><% } %></span>
+            <span class="subtitle">转载随意，文章会持续修订，请注明来源地址：<%=config.url%></span>
         </div>
         <div class="post-content blog-markdown">
             <%- page.more %>
