@@ -322,7 +322,6 @@
     border-radius: 3px;
     overflow-x: auto;
     -ms-overflow-x: auto;
-    display: block;
 
     &::-webkit-scrollbar { /*滚动条整体样式*/
       width: 5px; /*高宽分别对应横竖滚动条的尺寸*/
@@ -346,7 +345,7 @@
       font-family: inherit;
       font-size: inherit;
       background-color: @post-table-thead-bg-color !important;
-      white-space: nowrap;
+      //white-space: nowrap;//内容不换行
       font-weight: 600;
       border: 1px solid @post-table-border-color !important;
       padding: 8px 16px !important;
