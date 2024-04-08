@@ -193,17 +193,22 @@ $(function () {
         let pcOutlineState = parseInt(window.localStorage.getItem("pc-outline") || 0);
         //pc端目录高亮,[用JS原生实现锚点定位功能/动态目录高亮_清秋挽风的博客-CSDN博客_js 目录锚点](https://blog.csdn.net/qq_43684588/article/details/125048254)
         let windowWidth = document.documentElement.clientWidth || document.body.clientWidth;
-        //1500px与css的@media对应
+        let currentY = this.scrollY;
+        let direction = currentY > current;//大于0表示下滑，导航栏隐藏；小于0表示上滑，导航栏显示
+        if (currentY < 65) {
+            $header.removeClass("out").addClass("in");
+        } else {
+            $header.removeClass("in").addClass("out");
+        }
+        //1500px与css的@media对应，控制大纲目录
         if (windowWidth > 1500 && pcOutlineState === 0) {
-            let currentY = this.scrollY;
-            let direction = currentY > current;//大于0表示下滑，导航栏隐藏；小于0表示上滑，导航栏显示
             if (currentY < 65) {
-                $header.removeClass("out");
+                // $header.removeClass("out");
                 if (pcOutlineState === 0) {
                     $pcOutline.removeClass("pc-outline-out");
                 }
             } else {
-                direction > 0 ? $header.removeClass("in").addClass("out") : $header.removeClass("out").addClass("in");
+                // direction > 0 ? $header.removeClass("in").addClass("out") : $header.removeClass("out").addClass("in");
                 if (pcOutlineState === 0) {
                     $pcOutline.addClass("pc-outline-out");
                 }
@@ -235,7 +240,6 @@ $(function () {
                     }
                 }
             } else {
-                $header.removeClass("out");
                 if (pcOutlineState === 0) {
                     $pcOutline.removeClass("pc-outline-out");
                 }
