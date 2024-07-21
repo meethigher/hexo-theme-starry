@@ -14,6 +14,8 @@ Instructions
 
 ## 更新
 
+* 2024-07-21：readme新增**快速开始**
+
 * 2024-06-22：将**基于帧的动画**切换成**基于时间的动画**，在不同的刷新率显示器上都有相同的体验。[参考](https://meethigher.top/blog/2024/animation-and-frames/)。
 
 * 2024-06-02：新增loading图
@@ -68,13 +70,167 @@ Instructions
   1. rem布局
   2. 首页、标签、归档、关于功能
 
-## 注意事项
+## 快速开始
 
-因为当时开发的时候，使用的是`hexo3.9`旧版的插件，所以一直没有进行插件的更新，我自己目前仍然使用的旧版。也并没有计划更新最新版的计划，现在一直打算想迁移hugo，因为hexo目前的编译速度太慢了。
+该主题是想当年在旧版的环境上开发的，现在看来，虽然垃圾，但却饱含年轻时的热血。
 
-如果想要使用的话，可以修改hexo的配置：将`pluginConfig`里面的内容，加压提取后，复制到hexo根目录下，覆盖就行。
+如果想要运行的话，还是需要安装旧版的环境方可。建议版本如下
 
-简而言之
+* node >= 12.xx.xx
+* 4.2.0 >= hexo >= 3.9.0
 
-1. `node`<=12。这是node本身新旧版本语法不兼容问题，只要大版本是12及以下的都会支持。
-2. 使用`pluginConfig`里面提供的`package.json`进行`npm install`
+下面以 `Windows` 搭建环境为例，记录详细步骤。
+
+1.) 首先安装 `nvm` 用来管理 `node` 版本。 `nvm` 的[安装使用](https://github.com/coreybutler/nvm-windows)直接在 `github` 搜索，此处不多赘述。
+
+```sh
+D:\Desktop>nvm install 12.22.12
+
+D:\Desktop>nvm list
+
+  * 18.18.0 (Currently using 64-bit executable)
+    16.16.0
+    12.22.12
+
+D:\Desktop>nvm use 12.22.12
+Now using node v12.22.12 (64-bit)
+
+D:\Desktop>node -v
+v12.22.12
+
+```
+
+2.) 其次，安装 `hexo-cli` 工具
+
+```sh
+D:\Desktop>npm install -g hexo-cli@4.3.1
+C:\Program Files\nodejs\hexo -> C:\Program Files\nodejs\node_modules\hexo-cli\bin\hexo
+
+> hexo-util@3.3.0 postinstall C:\Program Files\nodejs\node_modules\hexo-cli\node_modules\hexo-fs\node_modules\hexo-util
+> npm run build:highlight
+
+
+> hexo-util@3.3.0 build:highlight C:\Program Files\nodejs\node_modules\hexo-cli\node_modules\hexo-fs\node_modules\hexo-util
+> node scripts/build_highlight_alias.js
+
+npm WARN notsup Unsupported engine for hexo-cli@4.3.1: wanted: {"node":">=14"} (current: {"node":"12.22.12","npm":"6.14.16"})
+npm WARN notsup Not compatible with your version of node/npm: hexo-cli@4.3.1
+npm WARN notsup Unsupported engine for abbrev@2.0.0: wanted: {"node":"^14.17.0 || ^16.13.0 || >=18.0.0"} (current: {"node":"12.22.12","npm":"6.14.16"})
+npm WARN notsup Not compatible with your version of node/npm: abbrev@2.0.0
+npm WARN notsup Unsupported engine for hexo-log@4.1.0: wanted: {"node":">=14"} (current: {"node":"12.22.12","npm":"6.14.16"})
+npm WARN notsup Not compatible with your version of node/npm: hexo-log@4.1.0
+npm WARN notsup Unsupported engine for hexo-fs@4.1.3: wanted: {"node":">=14"} (current: {"node":"12.22.12","npm":"6.14.16"})
+npm WARN notsup Not compatible with your version of node/npm: hexo-fs@4.1.3
+npm WARN notsup Unsupported engine for hexo-util@3.3.0: wanted: {"node":">=14"} (current: {"node":"12.22.12","npm":"6.14.16"})
+npm WARN notsup Not compatible with your version of node/npm: hexo-util@3.3.0
+npm WARN optional SKIPPING OPTIONAL DEPENDENCY: fsevents@~2.3.2 (node_modules\hexo-cli\node_modules\chokidar\node_modules\fsevents):
+npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for fsevents@2.3.3: wanted {"os":"darwin","arch":"any"} (current: {"os":"win32","arch":"x64"})
+
++ hexo-cli@4.3.1
+added 60 packages from 48 contributors in 24.487s
+```
+
+3.) 将默认主题更换为 `starry`
+
+```sh
+D:\Desktop>mkdir blog && cd blog && hexo init
+INFO  Cloning hexo-starter https://github.com/hexojs/hexo-starter.git
+←[32mINFO ←[39m Install dependencies
+added 228 packages from 184 contributors and audited 230 packages in 13.6s
+
+23 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+
+INFO  Start blogging with Hexo!
+
+
+D:\Desktop\blog>git clone https://github.com/meethigher/hexo-theme-starry.git themes/starry
+Cloning into 'themes/starry'...
+remote: Enumerating objects: 780, done.
+remote: Counting objects: 100% (192/192), done.
+remote: Compressing objects: 100% (132/132), done.
+remote: Total 780 (delta 111), reused 124 (delta 58), pack-reused 588
+Receiving objects: 100% (780/780), 49.11 MiB | 694.00 KiB/s, done.
+Resolving deltas: 100% (432/432), done.
+
+D:\Desktop\blog>copy themes\starry\_config.yml.root _config.yml
+覆盖 _config.yml 吗? (Yes/No/All): yes
+已复制         1 个文件。
+
+D:\Desktop\blog>copy themes\starry\package.json.root package.json
+覆盖 package.json 吗? (Yes/No/All): yes
+已复制         1 个文件。
+
+D:\Desktop\blog>copy themes\starry\sitemap-mock.xml sitemap-mock.xml
+已复制         1 个文件。
+
+D:\Desktop\blog>npm install
+npm WARN deprecated extract-text-webpack-plugin@3.0.2: Deprecated. Please use https://github.com/webpack-contrib/mini-css-extract-plugin
+npm WARN deprecated swig-templates@2.0.3: unmaintained
+npm WARN deprecated highlight.js@9.18.5: Support has ended for 9.x series. Upgrade to @latest
+npm WARN deprecated hexo-bunyan@2.0.0: Please see https://github.com/hexojs/hexo-bunyan/issues/17
+npm WARN deprecated chokidar@2.1.8: Chokidar 2 does not receive security updates since 2019. Upgrade to chokidar 3 with 15x fewer dependencies
+npm WARN deprecated source-map-resolve@0.5.3: See https://github.com/lydell/source-map-resolve#deprecated
+npm WARN deprecated rimraf@2.7.1: Rimraf versions prior to v4 are no longer supported
+npm WARN deprecated figgy-pudding@3.5.2: This module is no longer supported.
+npm WARN deprecated move-concurrently@1.0.1: This package is no longer supported.
+npm WARN deprecated rimraf@2.4.5: Rimraf versions prior to v4 are no longer supported
+npm WARN deprecated urix@0.1.0: Please see https://github.com/lydell/urix#deprecated
+npm WARN deprecated source-map-url@0.4.1: See https://github.com/lydell/source-map-url#deprecated
+npm WARN deprecated fsevents@1.2.13: The v1 package contains DANGEROUS / INSECURE binaries. Upgrade to safe fsevents v2
+npm WARN deprecated resolve-url@0.2.1: https://github.com/lydell/resolve-url#deprecated
+npm WARN deprecated copy-concurrently@1.0.5: This package is no longer supported.
+npm WARN deprecated fs-write-stream-atomic@1.0.10: This package is no longer supported.
+npm WARN deprecated glob@6.0.4: Glob versions prior to v9 are no longer supported
+npm WARN deprecated inflight@1.0.6: This module is not supported, and leaks memory. Do not use it. Check out lru-cache if you want a good and tested way to coalesce async requests by a key value, which is much more comprehensive and powerful.
+npm WARN deprecated cuid@2.1.8: Cuid and other k-sortable and non-cryptographic ids (Ulid, ObjectId, KSUID, all UUIDs) are all insecure. Use @paralleldrive/cuid2 instead.
+npm WARN deprecated glob@7.2.3: Glob versions prior to v9 are no longer supported
+
+> highlight.js@9.18.5 postinstall D:\Desktop\blog\node_modules\highlight.js
+> node deprecated.js
+
+-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+
+  Verion 9 of Highlight.js has reached EOL.  It will no longer
+  be supported or receive security updates in the future.
+  Please upgrade to version 10 or encourage your indirect
+  dependencies to do so.
+
+  For more info:
+
+  https://github.com/highlightjs/highlight.js/issues/2877
+  https://github.com/highlightjs/highlight.js/blob/master/VERSION_10_UPGRADE.md
+
+-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+
+> ejs@2.7.4 postinstall D:\Desktop\blog\node_modules\ejs
+> node ./postinstall.js
+
+Thank you for installing EJS: built with the Jake JavaScript build tool (https://jakejs.com/)
+
+npm WARN optional SKIPPING OPTIONAL DEPENDENCY: fsevents@~2.3.2 (node_modules\chokidar\node_modules\fsevents):
+npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for fsevents@2.3.3: wanted {"os":"darwin","arch":"any"} (current: {"os":"win32","arch":"x64"})
+npm WARN optional SKIPPING OPTIONAL DEPENDENCY: fsevents@^1.2.7 (node_modules\watchpack-chokidar2\node_modules\chokidar\node_modules\fsevents):
+npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for fsevents@1.2.13: wanted {"os":"darwin","arch":"any"} (current: {"os":"win32","arch":"x64"})
+npm WARN babel-loader@8.3.0 requires a peer of @babel/core@^7.0.0 but none is installed. You must install peer dependencies yourself.
+npm WARN extract-text-webpack-plugin@3.0.2 requires a peer of webpack@^3.1.0 but none is installed. You must install peer dependencies yourself.
+
+added 535 packages from 283 contributors, removed 63 packages, updated 47 packages and audited 702 packages in 43.037s
+
+33 packages are looking for funding
+  run `npm fund` for details
+
+found 17 vulnerabilities (1 low, 6 moderate, 8 high, 2 critical)
+  run `npm audit fix` to fix them, or `npm audit` for details
+
+D:\Desktop\blog>hexo s
+INFO  Start processing
+INFO  Hexo is running at http://localhost:4000 . Press Ctrl+C to stop.
+
+```
+
+
+
+ 
