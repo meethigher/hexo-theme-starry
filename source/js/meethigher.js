@@ -6,6 +6,26 @@ function changeHash(link) {
     });
 }
 
+/**
+ *
+ * 控制左侧目录和右侧工具栏的展示状态
+ * 0为展示，1为不展示。
+ * 右侧工具栏，默认是不展示，页面加载时判定状态决定是否展示。
+ * 左侧目录，默认是不展示，页面滑动时判定状态决定是否展示。
+ *
+ * @param keydown true表示按下快捷键进行状态切换
+ */
+function toolBarControl(keydown) {
+    let state = window.localStorage.getItem("pc-outline") || 0;
+    let newState = state;
+    if (keydown) {
+        window.localStorage.setItem("pc-outline", state == "0" ? 1 : 0);
+        newState = state == "0" ? 1 : 0
+        newState == "0" ? $(".pc-outline").addClass("pc-outline-out") : $(".pc-outline-out").removeClass("pc-outline-out");
+    }
+    newState == "0" ? $(".tool,.search").css("display", "block") : $(".tool,.search").css("display", "none");
+}
+
 $(function () {
     //下面这行是预处理显示样式
     $("figure.highlight tbody").append($("<span class='fa fa-copy btn-copy unclick'></span>"));
@@ -30,6 +50,7 @@ $(function () {
     let pcOutlineHeight = (window.innerHeight * 0.8) - 20;//与样式中配的80%匹配, -20是为了容错
 
     printDefaultLog();
+    toolBarControl();
 
     $mainContent.animate({"opacity": "1"});
     $donationBtn.on("click", function () {
@@ -266,11 +287,10 @@ $(function () {
             e.preventDefault();
             $(".search").click();
         }
+        //ctrl+shift+1可控制工具栏是否显示
         if (e.shiftKey && e.ctrlKey && e.keyCode == "49") {
             e.preventDefault();
-            let state = window.localStorage.getItem("pc-outline") || 0;
-            window.localStorage.setItem("pc-outline", state == "0" ? 1 : 0);
-            state == "0" ? $(".pc-outline-out").removeClass("pc-outline-out") : $(".pc-outline").addClass("pc-outline-out");
+            toolBarControl(true);
         }
         // //阻止f12事件，提示一个弹框
         // if (e.keyCode == "123") {
@@ -296,7 +316,7 @@ $(function () {
                 dataType: "json",
                 type: "GET",
                 error: function () {
-                    layer.msg("请检查你的配置哦，亲❤~");
+                    layer.msg("请检查你的配置哦");
                 },
                 success: function (data) {
                     //如果是xml格式，请用下面
@@ -335,7 +355,7 @@ $(function () {
             }
             if (count >= 15) {
                 layer.close(index);
-                layer.msg("超时，请检查您的网络哦，亲❤~");
+                layer.msg("超时，请检查您的网络哦");
                 clearInterval(timeId);
 
             }
@@ -352,7 +372,7 @@ $(function () {
             }
         });
         if (!isContains)
-            layer.msg("没有你要的内容哦，亲❤~");
+            layer.msg("没有你要的内容哦");
     }
 
 
@@ -381,7 +401,7 @@ $(function () {
             $result.empty();
             let value = $input.val();
             if (value === "" || value === null) {
-                layer.msg("请输入你要搜索的内容哦，亲❤~");
+                layer.msg("请输你要搜索的内容哦");
                 return;
             }
             searchResult($result, value);
@@ -421,7 +441,7 @@ $(function () {
     }
 
     //获取开始时间
-    let beginTime = $(".begin").text() || "2020-04-01 00:00:00";
+    let beginTime = $(".begin").text() || "1970-01-01 00:00:00";
     window.setInterval(function () {
         let res = Math.floor(Date.now() / 1000 - Date.parse(new Date(beginTime)) / 1000);
         timer(res);
